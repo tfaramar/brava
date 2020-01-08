@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { camelToSnakeCase } from '../../util/helper_functions';
+
 class SessionForm extends React.Component {
     constructor(props) {
         super(props);
@@ -31,8 +33,8 @@ class SessionForm extends React.Component {
     handleDemoSubmit(e) {
         e.preventDefault();
         const user = {
-            email: '',
-            password: ''
+            email: 'tfaramar@example.com',
+            password: 'password'
         }
         this.props.processForm(user)
     }
@@ -40,14 +42,18 @@ class SessionForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const user = Object.assign({}, this.state);
-        this.props.processForm(user)
+        const snakeCaseUser = Object.fromEntries(
+            Object.entries(user).map(([k, v]) => [camelToSnakeCase(k), v])
+        );
+        //console.log(snakeCaseUser);
+        this.props.processForm(snakeCaseUser)
     }
 
     renderErrors() {
         return (
             <ul>
                 {this.props.errors.map((error, i) => (
-                    <li key={`error-${i}`}>
+                    <li className="login-error" key={`error-${i}`}>
                         {error}
                     </li>
                 ))}
@@ -88,7 +94,9 @@ class SessionForm extends React.Component {
         return (
             <div className="login-form-container">
                 <form className="login-form-box" onSubmit={this.handleSubmit}>
-                    <h3>{this.props.message}</h3>
+                    <div className="login-form-message">
+                        <h3>{this.props.message}</h3>
+                    </div> 
                     <br />
                     {this.renderErrors()}
                     <div className="login-form">
