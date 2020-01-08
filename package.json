@@ -24,6 +24,7 @@
     "test": "test"
   },
   "scripts": {
+    "postinstall": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack --watch --mode=development"
   },
@@ -36,6 +37,10 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/tfaramar/strava/issues"
+  },
+  "engines": {
+    "node": "8.16.0",
+    "npm": "6.13.2"
   },
   "homepage": "https://github.com/tfaramar/strava#readme"
 }
