@@ -4,8 +4,8 @@ import { logout } from '../../actions/session_actions';
 import Nav from './nav';
 
 const mapStateToProps = ({ session, entities: { users } }) => ({
-    currentUser: users[session.id]
-})
+    currentUser: users[session.id] 
+});
         
 
 const mapDispatchToProps = dispatch => ({
