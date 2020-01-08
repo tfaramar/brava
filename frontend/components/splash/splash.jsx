@@ -7,7 +7,7 @@ const Splash = () => {
             <div className="splash-box">
                 <h1 className="splash-message">The #1 app for runners and cyclists</h1>
                 <div className="splash-content">
-                    <img className="splash-image" src="assets/devices-splash-header.jpg" alt="Strava mobile preview" />
+                    <img className="splash-image" src={window.splash_imgURL} alt="Strava mobile preview" />
                     <div className="splash-text">
                         <button>Sign up with Google</button>
                         <br/>
