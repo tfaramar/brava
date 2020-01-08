@@ -10,10 +10,8 @@ import LoginFormContainer from './session_form/login_form_container';
 //Routes will be defined in here
 const App = () => (
     <div>
-        <header>
-            <Link to="/" className="header-link">
-                <h1 className="logo">STRAVA</h1>
-            </Link>
+        <header className="global-header">
+            
             <NavContainer />
         </header>
         <Switch>

@@ -5,6 +5,9 @@ const Nav = ({ currentUser, logout }) => {
 
     const sessionLinks = () => (
         <nav className="login-signup">
+            <Link to="/" className="header-link">
+                <h1 className="logo">STRAVA</h1>
+            </Link>
             <Link to="/login"><button>Login</button></Link>
             <Link to="/signup"><button>Sign up</button></Link>
         </nav>
