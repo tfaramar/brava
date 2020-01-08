@@ -1,13 +1,16 @@
 .login-form-container {
-
+    background-image: url(/assets/shane-rounce-03cHOSwUXqs-unsplash.jpg);
+    background-size: cover;
+    height: 100vh;
 }
 
 .login-form-box {
     // background-color: navy;
+    
     width: 400px;
-    height: 594px;
-    margin: 60px 160px;
-    border-radius: 10px;
+    margin: 0 auto;
+    position: relative;
+    top: 7%;
     // display: flex;
     // flex-direction: column;
     // align-items: center;
@@ -15,13 +18,15 @@
 
 .login-form {
     width: 300px;
-    height: 372px;
+    height: 350px;
     padding: 50px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: black;
-    opacity: 0.8;
+    background-color: rgba(0,0,0,0.75);
+    // opacity: 0.8;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
 }
 
 .added-inputs {
@@ -31,7 +36,7 @@
 }
 
 .login-error {
-
+    text-decoration: none;
 }
 
 .login-input {
@@ -39,11 +44,24 @@
     border: 1px solid lightgray;
     width: 300px;
     box-sizing: border-box;
-    color: white;
+    border-radius: 4px;
+}
+
+.login-input::placeholder {
+  color: white;
+  font-size: 0.9em;
 }
 
 .demo-submit {
-
+    width: 300px;
+    height: 40px;
+    background-color: white;
+    text-align: center;
+    color: rgba(252,82,0,1);
+    border: 1px solid rgba(252,82,0,1);
+    font-weight: bold;
+    font-size: 0.9em;
+    border-radius: 4px;
 }
 
 .session-submit {
@@ -53,6 +71,7 @@
     text-align: center;
     color: white;
     font-weight: bold;
+    border-radius: 4px;
 }
 
 .login-form-message {
@@ -64,5 +83,10 @@
     width: 300px;
     height: 82px;
     background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
 }
 
