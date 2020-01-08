@@ -3,11 +3,31 @@
 }
 
 .login-form-box {
-    background-color: black;
+    // background-color: navy;
+    width: 400px;
+    height: 594px;
+    margin: 60px 160px;
+    border-radius: 10px;
+    // display: flex;
+    // flex-direction: column;
+    // align-items: center;
 }
 
 .login-form {
+    width: 300px;
+    height: 372px;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: black;
+    opacity: 0.8;
+}
 
+.added-inputs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .login-error {
@@ -15,7 +35,11 @@
 }
 
 .login-input {
-
+    padding: 10px 16px;
+    border: 1px solid lightgray;
+    width: 300px;
+    box-sizing: border-box;
+    color: white;
 }
 
 .demo-submit {
@@ -23,6 +47,22 @@
 }
 
 .session-submit {
+    width: 300px;
+    height: 40px;
+    background-color: rgba(252,82,0,1);
+    text-align: center;
+    color: white;
+    font-weight: bold;
+}
 
+.login-form-message {
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px 50px;
+    width: 300px;
+    height: 82px;
+    background-color: black;
 }
 

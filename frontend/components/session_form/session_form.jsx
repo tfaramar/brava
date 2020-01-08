@@ -74,7 +74,7 @@ class SessionForm extends React.Component {
         let nameInputs;
         if (this.props.formType === 'Sign Up') {
             nameInputs =
-            <div>
+            <div className="added-inputs">
                 <input type="text"
                     value={this.state.firstName}
                     placeholder="First Name"
@@ -88,16 +88,14 @@ class SessionForm extends React.Component {
                     onChange={this.update('lastName')}
                     className="login-input"
                 />
+                <br />
             </div>
         }
 
         return (
             <div className="login-form-container">
                 <form className="login-form-box" onSubmit={this.handleSubmit}>
-                    <div className="login-form-message">
-                        <h3>{this.props.message}</h3>
-                    </div> 
-                    <br />
+                    <h1 className="login-form-message">{this.props.message}</h1>
                     {this.renderErrors()}
                     <div className="login-form">
                         {demoButton}
@@ -116,7 +114,6 @@ class SessionForm extends React.Component {
                                 className="login-input"
                             />
                         <br />
-                        {}
                         {nameInputs}
                         <input className="session-submit" type="submit" value={this.props.formType} />
                     </div>
