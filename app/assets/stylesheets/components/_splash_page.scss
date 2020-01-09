@@ -56,6 +56,19 @@
     }
 }
 
+.broad-link {
+    padding: 16px 50px;
+    border: 1px solid lightgray;
+    width: 300px;
+    box-sizing: border-box;
+    border-radius: 2px;
+
+    &:hover {
+        background-color: $lighter-gray;
+        border: 1px solid $text-black;
+    }
+}
+
 .blue-link {
     color: $link-blue;
 
