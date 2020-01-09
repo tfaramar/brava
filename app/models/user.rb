@@ -4,6 +4,8 @@ class User < ApplicationRecord
     validates :email, uniqueness: true 
     validates :password, length: { minimum: 8 }, allow_nil: true
 
+    has_many: :activities, dependent: :destroy
+    
     after_initialize :ensure_session_token
 
     attr_reader :password
