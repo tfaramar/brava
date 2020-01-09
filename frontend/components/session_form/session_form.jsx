@@ -29,7 +29,6 @@ class SessionForm extends React.Component {
         });
     }
 
-    //handleDemoSubmit function, trigger with a DemoUser button (only render if formType is login) this should be a user from db seeds
     handleDemoSubmit(e) {
         e.preventDefault();
         const user = {
@@ -45,7 +44,6 @@ class SessionForm extends React.Component {
         const snakeCaseUser = Object.fromEntries(
             Object.entries(user).map(([k, v]) => [camelToSnakeCase(k), v])
         );
-        //console.log(snakeCaseUser);
         this.props.processForm(snakeCaseUser)
     }
 
@@ -53,7 +51,7 @@ class SessionForm extends React.Component {
         return (
             <ul>
                 {this.props.errors.map((error, i) => (
-                    <li className="login-error" key={`error-${i}`}>
+                    <li className={this.props.formType === "Sign Up" ? "signup-error" : "login-error"} key={`error-${i}`}>
                         {error}
                     </li>
                 ))}
@@ -67,7 +65,7 @@ class SessionForm extends React.Component {
             demoButton = 
             <div>
                 <br />
-                <button className="demo-submit" onClick={this.handleDemoSubmit}>Demo</button>
+                <button className="demo-submit" type="button" onClick={this.handleDemoSubmit}>Demo</button>
             </div>  
         }
 
