@@ -14,13 +14,13 @@ const App = () => (
         <header className="global-header">
             <NavContainer />
         </header>
-        <Switch>
+        <ProtectedRoute exact path="/" component={Dashboard} />
+        <Switch>  
             <AuthRoute exact path="/login" component={LoginFormContainer} />
             <AuthRoute exact path="/signup" component={SignupFormContainer} />
             <AuthRoute exact path="/" component={Splash} />
-            <ProtectedRoute exact path="/dashboard" component={Dashboard} />
             <Redirect to="/" />
-        </Switch>  
+        </Switch>   
     </div>
 );
 
