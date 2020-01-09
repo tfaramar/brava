@@ -51,7 +51,7 @@ class SessionForm extends React.Component {
         return (
             <ul>
                 {this.props.errors.map((error, i) => (
-                    <li className="login-error" key={`error-${i}`}>
+                    <li className={this.props.formType === "Sign Up" ? "signup-error" : "login-error"} key={`error-${i}`}>
                         {error}
                     </li>
                 ))}
@@ -89,8 +89,6 @@ class SessionForm extends React.Component {
                 <br />
             </div>
         }
-
-        console.log(this.props.errors);
 
         return (
             <div className="login-form-container">

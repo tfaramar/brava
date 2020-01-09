@@ -41,12 +41,20 @@
     max-width: 1248px;
 }
 
+.signup-error {
+    color: red;
+    background-color: rgba(0,0,0,0.75);
+    font-size: 0.7rem;
+    text-align: center;
+}
+
 .login-input {
     padding: 10px 16px;
     border: 1px solid lightgray;
     width: 300px;
     box-sizing: border-box;
     border-radius: 4px;
+    color: #CCC;
 }
 
 .login-input:focus {
