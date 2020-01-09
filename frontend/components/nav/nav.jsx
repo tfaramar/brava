@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const Nav = ({ currentUser, logout }) => {
+const Nav = ({ currentUser, logout, removeErrors }) => {
     
     const [formType, setFormType] = useState(window.location.hash);
 
@@ -11,9 +11,9 @@ const Nav = ({ currentUser, logout }) => {
 
     let sessionButton;
     if (formType === "#/login") {
-        sessionButton = <Link to="/signup"><button className="nav-signup">Sign up</button></Link>
+        sessionButton = <Link to="/signup"><button onClick={() => removeErrors()} className="nav-signup">Sign up</button></Link>
     } else if (formType === "#/signup" || formType === "#/" && !currentUser) {
-        sessionButton = <Link to="/login"><button className="nav-login">Login</button></Link>
+        sessionButton = <Link to="/login"><button onClick={() => removeErrors()} className="nav-login">Login</button></Link>
     };
 
     const sessionLinks = () => (
