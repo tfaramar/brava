@@ -1,4 +1,6 @@
 class Api::ActivitiesController < ApplicationController
+    before_action :require_logged_in
+
     def create
         @activity = Activity.new(activity_params)
         @activity.user_id = current_user.id
@@ -24,7 +26,7 @@ class Api::ActivitiesController < ApplicationController
 
     def index
         # ADD FILTER HERE ONCE YOU HAVE FOLLOWERS CREATED condition = query data || ''
-        @activities = Activity.find_by(user_id: current_user.id)
+        @activities = Activity.where(user_id: current_user.id)
         render :index
     end
 
@@ -32,6 +34,10 @@ class Api::ActivitiesController < ApplicationController
         @activity = Activity.find(params[:id])
         if @activity.user_id == current_user.id
             if @activity.update(activity_params)
+                render :show
+            else
+                render json: @activity.errors.full_messages, status: 400
+            end
         else
             render json: ['You are not authorized to revise this entry.'], status: 401
         end
