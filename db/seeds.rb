@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 ActiveRecord::Base.transaction do
     User.destroy_all
+    Activity.destroy_all
 
     
     user1 = User.create!(
@@ -21,18 +22,18 @@ ActiveRecord::Base.transaction do
 
     act1 = Activity.create!(
         user_id: 1,
-        type: 1,
+        sport: 1,
         title: 'How to beat the flu',
         personal_record: false,
-        start_time: 1578614036
+        start_time: Time.zone.at(1449506825)
     )
 
-    act1 = Activity.create!(
+    act2 = Activity.create!(
         user_id: 1,
-        type: 2,
+        sport: 2,
         title: 'Type 2 fun',
         personal_record: true,
-        start_time: 1578614000
+        start_time: Time.zone.at(1449506820)
     )
 
 end

@@ -44,6 +44,6 @@ class Api::ActivitiesController < ApplicationController
 
     private
     def activity_params
-        params.require(:activity).permit(:type, :title, :distance, :elevation, :elapsed_time, :personal_record, :route_id, :start_time)
+        params.require(:activity).permit(:sport, :title, :distance, :elevation, :elapsed_time, :personal_record, :route_id, :start_time)
     end
 end
