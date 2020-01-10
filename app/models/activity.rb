@@ -5,4 +5,7 @@ class Activity < ApplicationRecord
 
     belongs_to :user
     has_many :kudos, dependent: :destroy
+    has_many :kudoers,
+        through: :kudos,
+        source: :user
 end

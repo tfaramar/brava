@@ -1,9 +1,11 @@
 import React from 'react';
 
+import ActivityIndexContainer from './activity_index_container';
+
 const Dashboard = () => {
     return (
         <div>
-            <h1>Dashboard in progress!</h1>
+            <ActivityIndexContainer />
         </div>
     )
 }
