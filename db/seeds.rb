@@ -19,20 +19,21 @@ ActiveRecord::Base.transaction do
         country: 'United States'
     )
 
-    # Activity seeds
-    # act1 = Activity.create!(
-    #     user_id: 1,
-    #     type: 1,
-    #     title: 'How to beat the flu',
-    #     personal_record: false
-    # )
+    act1 = Activity.create!(
+        user_id: 1,
+        type: 1,
+        title: 'How to beat the flu',
+        personal_record: false,
+        start_time: 1578614036
+    )
 
-    # act1 = Activity.create!(
-    #     user_id: 1,
-    #     type: 2,
-    #     title: 'Type 2 fun',
-    #     personal_record: true
-    # )
+    act1 = Activity.create!(
+        user_id: 1,
+        type: 2,
+        title: 'Type 2 fun',
+        personal_record: true,
+        start_time: 1578614000
+    )
 
 end
 
