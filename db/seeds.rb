@@ -8,8 +8,8 @@
 ActiveRecord::Base.transaction do
     User.destroy_all
     Activity.destroy_all
+    Kudo.destroy_all
 
-    
     user1 = User.create!(
         first_name: 'Tatiana',
         last_name: 'Faramarzi',
@@ -34,6 +34,11 @@ ActiveRecord::Base.transaction do
         title: 'Type 2 fun',
         personal_record: true,
         start_time: Time.zone.at(1449506820)
+    )
+
+    kudo1 = Kudo.create!(
+        user_id: 1,
+        activity_id: 1
     )
 
 end

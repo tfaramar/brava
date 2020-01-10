@@ -4,4 +4,5 @@ class Activity < ApplicationRecord
     validates :user_id, :sport, :title, :distance, :elevation, :elapsed_time, :start_time, presence: true
 
     belongs_to :user
+    has_many :kudos, dependent: :destroy
 end
