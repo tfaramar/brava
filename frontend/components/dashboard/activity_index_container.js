@@ -6,7 +6,8 @@ import ActivityIndex from './activity_index';
 
 const mapStateToProps = state => ({
     errors: state.errors.activities,
-    activities: selectAllActivities(state)
+    activities: selectAllActivities(state),
+    currentUser: state.entities.users[state.session.id]
 });
 
 const mapDispatchToProps = dispatch => ({

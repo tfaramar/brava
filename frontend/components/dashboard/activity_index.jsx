@@ -5,10 +5,11 @@ import ActivityIndexCard from './activity_index_card';
 class ActivityIndex extends React.Component {
     componentDidMount() {
         this.props.fetchActivities();
+        //call fetchUsers here
     }
 
     render() {
-        const { activities, errors } = this.props;
+        const { activities, errors, currentUser } = this.props;
 
         return (
             <div className="activity-feed-container">
@@ -19,7 +20,7 @@ class ActivityIndex extends React.Component {
                 </div>
                 <div className="activity-feed">
                     {
-                      activities.map(act => <ActivityIndexCard key={act.id} activity={act} />)  
+                      activities.map(act => <ActivityIndexCard key={act.id} activity={act} currentUser={currentUser} />)  
                     }
                 </div>
             </div>

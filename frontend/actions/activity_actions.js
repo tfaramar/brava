@@ -50,10 +50,9 @@ export const createActivity = activity => dispatch => (
     ))
 );
 
-//Response from backend is full deleted activity obj, so may need to update this
 export const deleteActivity = activityId => dispatch => (
     APIUtil.deleteActivity(activityId).then(res => (
-        dispatch(removeActivity(res))
+        dispatch(removeActivity(activityId))
     ), err => (
         dispatch(receiveErrors(err.responseJSON))
     ))

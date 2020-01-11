@@ -25,7 +25,6 @@ class Api::ActivitiesController < ApplicationController
     end
 
     def index
-        # ADD FILTER HERE ONCE YOU HAVE FOLLOWERS CREATED condition = query data || ''
         @activities = Activity.where(user_id: current_user.id)
         render :index
     end

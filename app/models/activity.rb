@@ -8,4 +8,5 @@ class Activity < ApplicationRecord
     has_many :kudoers,
         through: :kudos,
         source: :user
+
 end

@@ -4,7 +4,7 @@ import ActivityIndexContainer from './activity_index_container';
 
 const Dashboard = () => {
     return (
-        <div>
+        <div className="dashboard">
             <ActivityIndexContainer />
         </div>
     )
