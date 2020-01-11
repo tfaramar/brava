@@ -25,7 +25,7 @@ class Api::ActivitiesController < ApplicationController
     end
 
     def index
-        @activities = Activity.where(user_id: current_user.id)
+        @activities = Activity.where(user_id: current_user.id).limit(10)
         render :index
     end
 
