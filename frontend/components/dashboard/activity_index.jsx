@@ -18,11 +18,11 @@ class ActivityIndex extends React.Component {
                         <h2>Your Activities</h2>
                     </button>
                 </div>
-                <div className="activity-feed">
+                {/* <div className="activity-feed">
                     {
                       activities.map(act => <ActivityIndexCard key={act.id} activity={act} currentUser={currentUser} />)  
                     }
-                </div>
+                </div> */}
             </div>
         )
     }

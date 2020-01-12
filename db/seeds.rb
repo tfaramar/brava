@@ -40,6 +40,16 @@ ActiveRecord::Base.transaction do
         country: 'United States'
     )
 
+    user4 = User.create!(
+        first_name: 'Raymond',
+        last_name: 'Carver',
+        email: 'rcarver@example.com',
+        password: 'cathedral',
+        city: 'Port Angeles',
+        state: 'WA',
+        country: 'United States'
+    )
+
     act1 = Activity.create!(
         user_id: 1,
         sport: 1,
@@ -80,6 +90,94 @@ ActiveRecord::Base.transaction do
         start_time: Time.zone.at(1449506820)
     )
 
+    act6 = Activity.create!(
+        user_id: 1,
+        sport: 1,
+        title: 'Afternoon Ride',
+        personal_record: false,
+        start_time: Time.zone.at(1449506820)
+    )
+
+    act7 = Activity.create!(
+        user_id: 3,
+        sport: 2,
+        title: 'Afternoon run',
+        personal_record: false,
+        start_time: Time.zone.at(1449506820)
+    )
+
+    act8 = Activity.create!(
+        user_id: 2,
+        sport: 2,
+        title: 'Run on Beale St',
+        personal_record: false,
+        start_time: Time.zone.at(1449506820)
+    )
+
+    act9 = Activity.create!(
+        user_id: 4,
+        sport: 2,
+        title: 'Riding out that hangover',
+        personal_record: false,
+        start_time: Time.zone.at(1449506820)
+    )
+
+    act10 = Activity.create!(
+        user_id: 1,
+        sport: 2,
+        title: 'Bike camping forever.',
+        personal_record: false,
+        start_time: Time.zone.at(1449506820)
+    )
+
+    act10 = Activity.create!(
+        user_id: 3,
+        sport: 1,
+        title: 'I do my hair toss',
+        personal_record: true,
+        start_time: Time.zone.at(1449506820)
+    )
+
+    act11 = Activity.create!(
+        user_id: 1,
+        sport: 2,
+        title: 'Presidio ridez',
+        personal_record: false,
+        start_time: Time.zone.at(1449506820)
+    )
+
+    act12 = Activity.create!(
+        user_id: 4,
+        sport: 1,
+        title: 'I was walking.',
+        personal_record: false,
+        start_time: Time.zone.at(1449506820)
+    )
+
+    act13 = Activity.create!(
+        user_id: 1,
+        sport: 1,
+        title: 'Morning run',
+        personal_record: false,
+        start_time: Time.zone.at(1449506820)
+    )
+
+    act14 = Activity.create!(
+        user_id: 3,
+        sport: 1,
+        title: 'Golden gate park ramble',
+        personal_record: false,
+        start_time: Time.zone.at(1449506820)
+    )
+
+    act15 = Activity.create!(
+        user_id: 2,
+        sport: 2,
+        title: 'Sunset ride',
+        personal_record: false,
+        start_time: Time.zone.at(1449506820)
+    )
+
     kudo1 = Kudo.create!(
         user_id: 1,
         activity_id: 1
@@ -108,6 +206,16 @@ ActiveRecord::Base.transaction do
     follow3 = Follow.create!(
         user_id: 3,
         follower_id: 2
+    )
+
+    follow4 = Follow.create!(
+        user_id: 4,
+        follower_id: 1
+    )
+
+    follow4 = Follow.create!(
+        user_id: 1,
+        follower_id: 4
     )
 
 end

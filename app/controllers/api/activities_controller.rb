@@ -25,7 +25,14 @@ class Api::ActivitiesController < ApplicationController
     end
 
     def index
-        @activities = Activity.where(user_id: current_user.id).limit(10)
+        @ids = [current_user.id]
+        if !params[:my_feed]
+            current_user.followees.each { |u| @ids.push(u.id) }
+        end
+        @activities = Activity.where(user_id: @ids)
+            .order(created_at: :desc)
+            .limit(5)
+            .offset(params[:offset])
         render :index
     end
 

@@ -1,9 +1,15 @@
-export const fetchActivities = () => (
-    $.ajax({
-        url: '/api/activities',
+//add in params below
+export const fetchActivities = (offset = 0, my_feed = false) => {
+    let url = `/api/activities?offset=${offset}`
+    if (my_feed) {
+        url += `&my_feed=${my_feed}`
+    }
+
+    return $.ajax({
+        url: url,
         method: 'GET'
-    })
-);
+    });
+};
 
 export const fetchActivity = activityId => (
     $.ajax({
