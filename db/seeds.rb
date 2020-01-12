@@ -20,6 +20,26 @@ ActiveRecord::Base.transaction do
         country: 'United States'
     )
 
+    user2 = User.create!(
+        first_name: 'James',
+        last_name: 'Baldwin',
+        email: 'jbald@example.com',
+        password: 'firenexttime',
+        city: 'Paris',
+        state: '',
+        country: 'France'
+    )
+
+    user3 = User.create!(
+        first_name: 'Marjane',
+        last_name: 'Satrapi',
+        email: 'msat@example.com',
+        password: 'persepolis',
+        city: 'San Francisco',
+        state: 'CA',
+        country: 'United States'
+    )
+
     act1 = Activity.create!(
         user_id: 1,
         sport: 1,
@@ -36,9 +56,58 @@ ActiveRecord::Base.transaction do
         start_time: Time.zone.at(1449506820)
     )
 
+    act3 = Activity.create!(
+        user_id: 2,
+        sport: 2,
+        title: 'Nothing can be changed until it is faced!',
+        personal_record: true,
+        start_time: Time.zone.at(1449506820)
+    )
+
+    act4 = Activity.create!(
+        user_id: 3,
+        sport: 1,
+        title: 'I\'m unstoppable on my bicycle',
+        personal_record: false,
+        start_time: Time.zone.at(1449506820)
+    )
+
+    act5 = Activity.create!(
+        user_id: 3,
+        sport: 1,
+        title: 'Freedom in the headlands',
+        personal_record: false,
+        start_time: Time.zone.at(1449506820)
+    )
+
     kudo1 = Kudo.create!(
         user_id: 1,
         activity_id: 1
+    )
+
+    kudo2 = Kudo.create!(
+        user_id: 2,
+        activity_id: 1
+    )
+
+    kudo3 = Kudo.create!(
+        user_id: 2,
+        activity_id: 4
+    )
+
+    follow1 = Follow.create!(
+        user_id: 2,
+        follower_id: 1
+    )
+
+    follow2 = Follow.create!(
+        user_id: 3,
+        follower_id: 1
+    )
+
+    follow3 = Follow.create!(
+        user_id: 3,
+        follower_id: 2
     )
 
 end

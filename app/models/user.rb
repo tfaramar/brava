@@ -6,7 +6,25 @@ class User < ApplicationRecord
 
     has_many :activities, dependent: :destroy
     has_many :kudos, dependent: :destroy
+
+    has_many :following_users,
+        class_name: 'Follow',
+        foreign_key: :user_id,
+        primary_key: :id
+
+    has_many :followed_users,
+        class_name: 'Follow',
+        foreign_key: :follower_id,
+        primary_key: :id
+
+    has_many :followees,
+        through: :followed_users
+
+    has_many :followers,
+        through: :following_users
+
     
+
     after_initialize :ensure_session_token
 
     attr_reader :password
