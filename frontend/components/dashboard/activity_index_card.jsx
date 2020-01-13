@@ -1,6 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import { formatDateFull } from '../../util/helper_functions';
+
+
 const ActivityIndexCard = ({ activity, user, kudos, currentUser, createKudo, deleteKudo }) => {
     
     const currentUserHasKudoed = (kudos) => {
@@ -39,7 +42,7 @@ const ActivityIndexCard = ({ activity, user, kudos, currentUser, createKudo, del
                     <Link to={`/athletes/${user.id}`}>
                         <h2 className="entry-owner">{`${user.firstName} ${user.lastName}`}</h2>
                     </Link>
-                    <p className="timestamp">{activity.startTime}</p>
+                    <p className="timestamp">{formatDateFull(activity.startTime)}</p>
                 </div>
             </div>
             <div className="entry-body">

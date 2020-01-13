@@ -5,15 +5,8 @@ class UserSidebar extends React.Component {
     constructor(props) {
         super(props);  
     }
-
-    // componentDidMount() {
-    //     if (this.props.currentUser.activityIds) {
-    //         this.props.fetchActivity(this.props.currentUser.activityIds[activityIds.length - 1]);
-    //     } 
-    // }
     
     render() {
-        console.log(formatDate('2015-03-04T00:00:00.000Z'));
         const {currentUser} = this.props;
 
         return (
@@ -39,7 +32,7 @@ class UserSidebar extends React.Component {
                     </div>
                     <div className="card-footer">
                         <p className="text-small">Latest Activity</p>
-                        <p className="text-small"><strong>{currentUser.latestActivity ? currentUser.latestActivity.title : ""} &#9679;</strong> {currentUser.latestActivity ? currentUser.latestActivity.start_time : ""}</p>
+                        <p className="text-small"><strong>{currentUser.latestActivity ? currentUser.latestActivity.title : ""} &#9679;</strong> {currentUser.latestActivity ? formatDate(currentUser.latestActivity.start_time) : ""}</p>
                     </div>
                 </div>
 
