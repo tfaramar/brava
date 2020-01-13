@@ -1,7 +1,8 @@
 class Api::KudosController < ApplicationController
-    before_action :find_activity
+    # before_action :find_activity
 
     def create
+        find_activity 
         @kudo = @activity.kudos.new(user_id: current_user.id)
         if @kudo.save  
             render :show

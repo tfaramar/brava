@@ -3,10 +3,9 @@ import {
     RECEIVE_ACTIVITY,
     REMOVE_ACTIVITY
 } from '../actions/activity_actions';
-
-import {
-    RECEIVE_KUDO,
-    REMOVE_KUDO
+import { 
+    REMOVE_KUDO,
+    RECEIVE_KUDO
 } from '../actions/kudos_actions';
 
 const ActivitiesReducer = (state = {}, action) => {
@@ -15,7 +14,7 @@ const ActivitiesReducer = (state = {}, action) => {
 
     switch(action.type) {
         case RECEIVE_ACTIVITIES:
-            return Object.assign({}, state, action.activities);
+            return Object.assign({}, state, action.data.activities);
         case RECEIVE_ACTIVITY:
             return Object.assign({}, state, {
                 [action.activity.id]: action.activity
@@ -23,12 +22,14 @@ const ActivitiesReducer = (state = {}, action) => {
         case REMOVE_ACTIVITY:
             delete nextState[action.activityId] 
             return nextState;
-        case RECEIVE_KUDO:
-            let act = nextState[action.kudo.activity_id]
-            act.kudoers.push(action.kudo.user_id)
+        case REMOVE_KUDO:
+            let activity = nextState[action.kudo.activityId]
+            activity.kudoIds = activity.kudoIds.filter(k => k !== action.kudo.id)
             return nextState;
-        // case REMOVE_KUDO:
-            
+        case RECEIVE_KUDO:
+            let act = nextState[action.kudo.activityId]
+            act.kudoIds.push(action.kudo.id)
+            return nextState;
         default:
             return state;
     }

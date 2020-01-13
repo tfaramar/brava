@@ -5,9 +5,9 @@ export const RECEIVE_ACTIVITY = 'RECEIVE_ACTIVITY';
 export const REMOVE_ACTIVITY = 'REMOVE_ACTIVITY';
 export const RECEIVE_ACTIVITY_ERRORS = 'RECEIVE_ACTIVITY_ERRORS';
 
-export const receiveActivities = activities => ({
+export const receiveActivities = data => ({
     type: RECEIVE_ACTIVITIES,
-    activities
+    data
 });
 
 export const receiveActivity = activity => ({
@@ -24,7 +24,6 @@ export const receiveErrors = errors => ({
     type: RECEIVE_ACTIVITY_ERRORS,
     errors
 });
-
 
 export const fetchActivities = () => dispatch => (
     APIUtil.fetchActivities().then(res => (

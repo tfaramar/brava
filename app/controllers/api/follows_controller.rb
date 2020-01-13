@@ -1,7 +1,7 @@
 class Api::FollowsController < ApplicationController
-    before_action :find_user
 
     def create
+        find_user
         @follow = @user.followed_users.new(follower_id: current_user.id)
         if @follow.save
             render :show

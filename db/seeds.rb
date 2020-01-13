@@ -193,6 +193,16 @@ ActiveRecord::Base.transaction do
         activity_id: 4
     )
 
+    kudo4 = Kudo.create!(
+        user_id: 3,
+        activity_id: 14
+    )
+
+    kudo5 = Kudo.create!(
+        user_id: 1,
+        activity_id: 10
+    )
+
     follow1 = Follow.create!(
         user_id: 2,
         follower_id: 1
