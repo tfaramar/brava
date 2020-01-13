@@ -25,7 +25,6 @@ export const removeErrors = dispatch => {
     });
 };
 
-//thunk action creators
 export const signup = user => dispatch => (
     APIUtil.signup(user).then(user => (
         dispatch(receiveCurrentUser(user))

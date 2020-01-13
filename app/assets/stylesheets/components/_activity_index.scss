@@ -1,0 +1,152 @@
+.dashboard {
+    display: flex;
+    flex-flow: row;
+    background-color: ghostwhite;
+}
+
+.feed-header {
+    margin-top: 0;
+    padding-top: 12px;
+    padding-bottom: 6px;
+    height: 64px; 
+    box-sizing: border-box;
+    line-height: 1;
+}
+
+.feed-toggle {
+    border-color: transparent;
+    padding: 12px;
+
+    &:hover {
+        background-color: white;
+    }
+}
+
+.activity-feed-container {
+    width: 66%; 
+    min-height: 1px;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.entry-card {
+    margin-top: 12px;
+    margin-bottom: 12px;
+    box-shadow: 0px 8px 24px rgba(1, 1, 15, 0.04);
+    border-radius: 4px;
+    background-color: #fff;
+}
+
+.entry-header {
+    margin-bottom: 8px;
+    padding: 16px 24px 0 24px;
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.avatar-wrapper {
+    width: 40px;
+    height: 40px;
+    margin-right: 24px;
+    text-align: center;
+}
+
+.entry-header-content {
+    display: flex;
+    flex-flow: column;
+}
+
+.entry-owner {
+    font-weight: bold;
+    font-size: 14px;  
+}
+
+.timestamp {
+    font-size: 11px;
+    color: #666666;
+}
+
+.icon {
+    color: black;
+    font-size: 1.5em;
+    margin-right: 24px;
+    width: 40px;
+    text-align: center;
+}
+
+.entry-title {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.entry-body {
+    margin-top: 8px;
+    padding-left: 24px;
+    padding-right: 88px;
+    margin-bottom: 16px;
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-start;
+}
+
+.list-stats {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around
+    
+}
+
+.stat {
+    margin-left: 0;
+    margin-right: 16px;
+    padding-right: 16px;
+    position: relative;
+}
+
+.stat-subtext {
+    font-size: 12px;
+    font-weight: 400;
+    color: #494950;
+    line-height: 1.2;
+}
+
+.stat-text {
+    font-weight: 400;
+    line-height: 1.45;
+    white-space: nowrap;
+}
+
+.entry-footer {
+    margin-top: 8px;
+    padding: 0 24px 16px 24px;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.kudo-count {
+    font-size: 11px;
+    color: black;
+}
+
+.kudo-button {
+    border: 1px solid #f0f0f5;
+    display: block;
+    padding: 5px 14px;
+    background-color: #f0f0f5;
+    border-radius: 4px;
+}
+
+.active-kudo {
+    background-color: white;
+    color: $orange;
+}
+
+.inactive-kudo {
+    background-color: ghostwhite;
+    color: #494950;
+}
