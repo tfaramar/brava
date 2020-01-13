@@ -1,6 +1,7 @@
 .user-sidebar-container {
-    width: 30%;
-    margin-left: 3%;
+    width: 28%;
+    margin-left: 2%;
+    padding: 0px 16px;
 }
 
 .sidebar-athlete-profile {
@@ -8,4 +9,63 @@
     margin: 76px 0 12px 0;
     background-color: #fff;
     border-radius: 4px;
+    box-shadow: 0px 8px 24px rgba(1, 1, 15, 0.04);
 }
+
+.card-text-center {
+    padding: 16px;
+}
+
+.card-footer {
+    border-top: 1px solid #f0f0f5;
+    padding: 16px;
+}
+
+.card-text-center h1 {
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.sidebar-list-stats {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-evenly;
+    
+}
+
+.sidebar-stat {
+    width: 33.333%;
+}
+
+.middle-li {
+    border-right: 1px solid #f0f0f5;
+    border-left: 1px solid #f0f0f5;
+}
+
+.sidebar-stat-text {
+    font-weight: 400;
+    line-height: 1.45;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.sidebar-stat-subtext {
+    text-align: center;
+    font-size: 12px;
+    font-weight: 400;
+    color: #494950;
+    line-height: 1.2;
+}
+
+.text-small {
+    font-size: 12px;
+    font-weight: 400;
+    color: black;
+    line-height: 1.6;
+}
+
+strong {
+    font-weight: bold;
+}
+

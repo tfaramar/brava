@@ -36,7 +36,6 @@ class ActivityIndex extends React.Component {
         const { activities, users, kudos, errors, currentUser, createKudo, deleteKudo } = this.props;
         
         const findKudos = (stateKudos, kudoIds) => {
-            console.log(stateKudos)
             let kudosObjects = [];
             for (let i=0;i<kudoIds.length;i++){
                 let id = kudoIds[i];

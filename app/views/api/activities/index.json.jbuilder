@@ -10,6 +10,10 @@ json.users do
   @activities.each do |act|
     json.set! act.user.id do
       json.partial! 'api/users/user', user: act.user
+      json.followers act.user.followers.size
+      json.followees act.user.followees.size
+      json.activityIds act.user.activity_ids
+      json.latestActivity act.user.activities.last
     end
   end
 end
