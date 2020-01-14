@@ -1,5 +1,6 @@
 import {
     RECEIVE_ACTIVITIES,
+    RECEIVE_MORE_ACTIVITIES,
     RECEIVE_ACTIVITY,
     REMOVE_ACTIVITY
 } from '../actions/activity_actions';
@@ -14,7 +15,9 @@ const ActivitiesReducer = (state = {}, action) => {
 
     switch(action.type) {
         case RECEIVE_ACTIVITIES:
-            return Object.assign({}, state, action.data.activities);
+            return Object.assign({}, action.data.activities);
+        case RECEIVE_MORE_ACTIVITIES:
+            return Object.assign({}, state, action.data.activities)
         case RECEIVE_ACTIVITY:
             return Object.assign({}, state, {
                 [action.activity.id]: action.activity

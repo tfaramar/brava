@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { fetchActivities } from '../../actions/activity_actions';
+import { fetchActivities, fetchMoreActivities } from '../../actions/activity_actions';
 import { selectAllActivities } from '../../reducers/selectors';
 import { createKudo, deleteKudo } from '../../actions/kudos_actions';
 import ActivityIndex from './activity_index';
@@ -15,6 +15,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     fetchActivities: (offset, my_feed) => dispatch(fetchActivities(offset, my_feed)),
+    fetchMoreActivities: (offset, my_feed) => dispatch(fetchMoreActivities(offset, my_feed)),
     createKudo: (activityId) => dispatch(createKudo(activityId)),
     deleteKudo: (kudoId) => dispatch(deleteKudo(kudoId))
 });

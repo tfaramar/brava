@@ -1,12 +1,12 @@
 import React from 'react';
 
 import ActivityIndexCard from './activity_index_card';
-
 class ActivityIndex extends React.Component {
     constructor(props) {
         super(props);
 
         this.offset = 0;
+        this.myFeed = false;
         this.isBottom = this.isBottom.bind(this);
         this.trackScrolling = this.trackScrolling.bind(this);
     }
@@ -31,9 +31,13 @@ class ActivityIndex extends React.Component {
         if (this.isBottom(wrappedElement)) {
             console.log('big div bottom reached');
             this.offset += 5;
-            this.props.fetchActivities(this.offset);
-            //document.removeEventListener('scroll', this.trackScrolling);
+            this.props.fetchMoreActivities(this.offset, this.myFeed);
         }
+    };
+
+    changeActivityFeed() {
+        this.myFeed = !this.myFeed;
+        this.props.fetchActivities(0, this.myFeed)
     };
 
     render() {
@@ -48,19 +52,29 @@ class ActivityIndex extends React.Component {
             return kudosObjects;
         }
 
-        const toggleFeedType = (id) => {
+        const toggleDropdown = (id) => {
             document.getElementById(id).classList.toggle("show");
         }
-        
+
+        window.onclick = (e) => {
+            if (!e.target.matches('.feed-toggle') && !e.target.matches('.toggle-title')) {
+                let dropdown = document.getElementById("dropdown");
+                if (dropdown.classList.contains("show")) {
+                    dropdown.classList.remove("show");
+                }
+            } 
+        }
+
         return (
             <div className="activity-feed-container" id="big-div">
                 <div className="feed-header">
                     <div className="feed-dropdown">
-                        <button type="button" className="feed-toggle" onClick={() => toggleFeedType("dropdown")}>
-                            <h2>Following</h2>
+                        <button type="button" className="feed-toggle" onClick={() => toggleDropdown("dropdown")}>
+                            <h2 className="toggle-title">{this.myFeed ? 'My Activities' : 'Following'}</h2>
+                            <span><i className="fas fa-angle-down"></i></span> 
                         </button>
                         <div id="dropdown" className="dropdown-content">
-                            <button type="button">Your Activities</button>
+                            <button type="button" onClick={() => this.changeActivityFeed()}>{this.myFeed ? 'Following' : 'My Activities'}</button>
                         </div>
                     </div>
                 </div>
@@ -72,7 +86,7 @@ class ActivityIndex extends React.Component {
                 </div>
             </div>
         )
-    }
-}
+    };
+};
 
 export default ActivityIndex;
