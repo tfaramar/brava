@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { formatDateFull } from '../../util/helper_functions';
+import { formatDateFull, formatTime } from '../../util/helper_functions';
 
 
 const ActivityIndexCard = ({ activity, user, kudos, currentUser, createKudo, deleteKudo }) => {
@@ -66,7 +66,7 @@ const ActivityIndexCard = ({ activity, user, kudos, currentUser, createKudo, del
                         </li>
                         <li className="stat">
                             <div className="stat-subtext">Time</div>
-                            <div className="stat-text">{activity.elapsedTime}</div>
+                            <div className="stat-text">{formatTime(activity.time)}</div>
                         </li>
                     </ul>
                 </div>

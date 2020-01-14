@@ -28,7 +28,7 @@
     } 
 }
 
-.nav-login {
+.nav-login, .nav-logout {
     border: 1px solid lightgray;
     text-align: center;
     color: $text-black;
@@ -41,3 +41,4 @@
         background-color: $lightest-gray;
     }
 }
+
