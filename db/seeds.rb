@@ -118,8 +118,11 @@ ActiveRecord::Base.transaction do
         user_id: 4,
         sport: 2,
         title: 'Riding out that hangover',
+        distance: 2.45,
+        elevation: 478,
+        elapsed_time: 3500,
         personal_record: false,
-        start_time: Time.zone.at(1449506820)
+        start_time: Time.zone.at(1578621368)
     )
 
     act10 = Activity.create!(

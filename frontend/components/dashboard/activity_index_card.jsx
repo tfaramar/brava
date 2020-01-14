@@ -7,10 +7,12 @@ import { formatDateFull } from '../../util/helper_functions';
 const ActivityIndexCard = ({ activity, user, kudos, currentUser, createKudo, deleteKudo }) => {
     
     const currentUserHasKudoed = (kudos) => {
-        for(let i=0; i<kudos.length; i++){
-            let kudo = kudos[i];
-            if (kudo.userId === currentUser.id) {
-                return kudo.id;
+        if (kudos) {
+            for(let i=0; i<kudos.length; i++){
+                let kudo = kudos[i];
+                if (kudo.userId === currentUser.id) {
+                    return kudo.id;
+                }
             }
         }
         return null;

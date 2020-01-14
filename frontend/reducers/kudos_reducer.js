@@ -9,7 +9,7 @@ const kudosReducer = (state = {}, action) => {
 
     switch (action.type) {
         case RECEIVE_ACTIVITIES:
-            return Object.assign({}, action.data.kudos);
+            return Object.assign({}, state, action.data.kudos);
         case RECEIVE_KUDO:
             return Object.assign({}, state, { 
                 [action.kudo.id]: action.kudo

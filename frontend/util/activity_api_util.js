@@ -1,12 +1,13 @@
 //add in params below
 export const fetchActivities = (offset = 0, my_feed = false) => {
-    let url = `/api/activities?offset=${offset}`
+    console.log('fetch activities ajax', offset, my_feed);
+    let URL = `/api/activities?offset=${offset}`
     if (my_feed) {
-        url += `&my_feed=${my_feed}`
+        URL += `&my_feed=${my_feed}`
     }
 
     return $.ajax({
-        url: url,
+        url: URL,
         method: 'GET'
     });
 };

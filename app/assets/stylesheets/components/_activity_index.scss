@@ -13,13 +13,40 @@
     line-height: 1;
 }
 
+.feed-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
 .feed-toggle {
     border-color: transparent;
     padding: 12px;
+    font-size: 14px;
 
     &:hover {
         background-color: white;
     }
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 100px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content button {
+    color: black;
+    padding: 12px;
+    text-decoration: none;
+    display: block;
+    font-size: 13px;
+}
+
+.show {
+    display:block;
 }
 
 .activity-feed-container {

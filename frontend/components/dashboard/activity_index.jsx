@@ -6,11 +6,12 @@ class ActivityIndex extends React.Component {
     constructor(props) {
         super(props);
 
+        this.offset = 0;
         this.isBottom = this.isBottom.bind(this);
         this.trackScrolling = this.trackScrolling.bind(this);
     }
 
-    //from: https://stackoverflow.com/a/45586395
+    //the below was built with reference to: https://stackoverflow.com/a/45586395
     isBottom(el) {
         return el.getBoundingClientRect().bottom <= window.innerHeight;
     }
@@ -22,12 +23,15 @@ class ActivityIndex extends React.Component {
 
     componentWillUnmount() {
         document.removeEventListener('scroll', this.trackScrolling);
+        this.offset = 0;
     }
 
     trackScrolling() {
         const wrappedElement = document.getElementById('big-div');
         if (this.isBottom(wrappedElement)) {
             console.log('big div bottom reached');
+            this.offset += 5;
+            this.props.fetchActivities(this.offset);
             //document.removeEventListener('scroll', this.trackScrolling);
         }
     };
@@ -43,20 +47,27 @@ class ActivityIndex extends React.Component {
             }
             return kudosObjects;
         }
+
+        const toggleFeedType = (id) => {
+            document.getElementById(id).classList.toggle("show");
+        }
         
         return (
             <div className="activity-feed-container" id="big-div">
                 <div className="feed-header">
                     <div className="feed-dropdown">
-                        <button type="button" className="feed-toggle">
-                            <h2>Your Activities</h2>
+                        <button type="button" className="feed-toggle" onClick={() => toggleFeedType("dropdown")}>
+                            <h2>Following</h2>
                         </button>
+                        <div id="dropdown" className="dropdown-content">
+                            <button type="button">Your Activities</button>
+                        </div>
                     </div>
                 </div>
                 
                 <div className="activity-feed">
                     {
-                      activities.map(act => <ActivityIndexCard key={act.id} activity={act} user={users[act.userId]} kudos={findKudos(kudos, act.kudoIds)} currentUser={currentUser} createKudo={createKudo} deleteKudo={deleteKudo}/>)  
+                      activities.reverse().map(act => <ActivityIndexCard key={act.id} activity={act} user={users[act.userId]} kudos={findKudos(kudos, act.kudoIds)} currentUser={currentUser} createKudo={createKudo} deleteKudo={deleteKudo}/>)  
                     }
                 </div>
             </div>

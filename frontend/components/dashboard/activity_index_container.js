@@ -14,7 +14,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    fetchActivities: () => dispatch(fetchActivities()),
+    fetchActivities: (offset, my_feed) => dispatch(fetchActivities(offset, my_feed)),
     createKudo: (activityId) => dispatch(createKudo(activityId)),
     deleteKudo: (kudoId) => dispatch(deleteKudo(kudoId))
 });

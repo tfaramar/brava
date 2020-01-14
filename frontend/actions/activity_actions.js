@@ -25,13 +25,14 @@ export const receiveErrors = errors => ({
     errors
 });
 
-export const fetchActivities = () => dispatch => (
-    APIUtil.fetchActivities().then(res => (
+export const fetchActivities = (offset, my_feed) => dispatch => {
+    console.log('fetch activities action', offset, my_feed);
+    return APIUtil.fetchActivities(offset, my_feed).then(res => (
         dispatch(receiveActivities(res))
     ), err => (
         dispatch(receiveErrors(err.responseJSON))
     ))
-);
+};
 
 export const fetchActivity = activityId => dispatch => (
     APIUtil.fetchActivity(activityId).then(res => (
