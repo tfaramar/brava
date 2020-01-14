@@ -41,7 +41,7 @@ const ActivityIndexCard = ({ activity, user, kudos, currentUser, createKudo, del
                     <i className="fas fa-user-circle"></i>
                 </div>
                 <div className="entry-header-content">
-                    <Link to={`/athletes/${user.id}`}>
+                    <Link className="link" to={`/athletes/${user.id}`}>
                         <h2 className="entry-owner">{`${user.firstName} ${user.lastName}`}</h2>
                     </Link>
                     <p className="timestamp">{formatDateFull(activity.startTime)}</p>
@@ -52,7 +52,7 @@ const ActivityIndexCard = ({ activity, user, kudos, currentUser, createKudo, del
                     <i className="fas fa-bicycle"></i>
                 </span>
                 <div className="entry-body-content">
-                    <Link to={`/activities/${activity.id}`}>
+                    <Link className="link" to={`/activities/${activity.id}`}>
                         <h1 className="entry-title">{activity.title}</h1>
                     </Link>
                     <ul className="list-stats">

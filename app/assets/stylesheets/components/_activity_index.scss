@@ -186,3 +186,9 @@
     background-color: #f7f7fa;
     color: #494950;
 }
+
+.link {
+   &:hover {
+      color: $dark-link-blue;
+   }
+}

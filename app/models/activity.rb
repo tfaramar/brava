@@ -10,15 +10,19 @@ class Activity < ApplicationRecord
         source: :user
 
     def time
-        totalSeconds = self.elapsed_time
-        hours = (totalSeconds / 3600).floor()
-        totalSeconds = totalSeconds % 3600
-        minutes = (totalSeconds / 60).floor()
-        seconds = totalSeconds % 60
+        total_seconds = self.elapsed_time
+        hours = (total_seconds / 3600).floor()
+        total_seconds = total_seconds % 3600
+        minutes = (total_seconds / 60).floor()
+        seconds = total_seconds % 60
         "#{hours}:#{minutes}:#{seconds}"
     end
 
-    # def average_speed
-    # end
+    def avg_speed_mph
+        distance = self.distance
+        total_time = self.elapsed_time
+        hours = (total_time.to_f/3600.to_f)
+        (distance/hours).round(1)
+    end
 
 end
