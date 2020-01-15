@@ -58,7 +58,7 @@ ActiveRecord::Base.transaction do
         elevation: 6188,
         elapsed_time: 15932,
         personal_record: false,
-        start_time: Time.zone.at(1449506825)
+        start_time: Time.zone.at(1572432968)
     )
 
     act2 = Activity.create!(
@@ -69,7 +69,7 @@ ActiveRecord::Base.transaction do
         elevation: 598,
         elapsed_time: 4200,
         personal_record: true,
-        start_time: Time.zone.at(1449506820)
+        start_time: Time.zone.at(1573569608)
     )
 
     act3 = Activity.create!(
@@ -80,7 +80,7 @@ ActiveRecord::Base.transaction do
         elevation: 208,
         elapsed_time: 4118,
         personal_record: true,
-        start_time: Time.zone.at(1449506820)
+        start_time: Time.zone.at(1573753208)
     )
 
     act4 = Activity.create!(
@@ -91,7 +91,7 @@ ActiveRecord::Base.transaction do
         elevation: 1229,
         elapsed_time: 4450,
         personal_record: false,
-        start_time: Time.zone.at(1449506820)
+        start_time: Time.zone.at(1573753208)
     )
 
     act5 = Activity.create!(
@@ -102,7 +102,7 @@ ActiveRecord::Base.transaction do
         elevation: 208,
         elapsed_time: 4118,
         personal_record: false,
-        start_time: Time.zone.at(1449506820)
+        start_time: Time.zone.at(1574324708)
     )
 
     act6 = Activity.create!(
@@ -113,7 +113,7 @@ ActiveRecord::Base.transaction do
         elevation: 1571,
         elapsed_time: 4665,
         personal_record: false,
-        start_time: Time.zone.at(1449506820)
+        start_time: Time.zone.at(1574688308)
     )
 
     act7 = Activity.create!(
@@ -124,7 +124,7 @@ ActiveRecord::Base.transaction do
         elevation: 118,
         elapsed_time: 2018,
         personal_record: false,
-        start_time: Time.zone.at(1449506820)
+        start_time: Time.zone.at(1574979488)
     )
 
     act8 = Activity.create!(
@@ -135,7 +135,7 @@ ActiveRecord::Base.transaction do
         elevation: 264,
         elapsed_time: 2100,
         personal_record: false,
-        start_time: Time.zone.at(1449506820)
+        start_time: Time.zone.at(1574979480)
     )
 
     act9 = Activity.create!(
@@ -146,7 +146,7 @@ ActiveRecord::Base.transaction do
         elevation: 478,
         elapsed_time: 3500,
         personal_record: false,
-        start_time: Time.zone.at(1578621368)
+        start_time: Time.zone.at(1575203708)
     )
 
     act10 = Activity.create!(
@@ -157,7 +157,7 @@ ActiveRecord::Base.transaction do
         elevation: 2058,
         elapsed_time: 6780,
         personal_record: false,
-        start_time: Time.zone.at(1449506820)
+        start_time: Time.zone.at(1575654908)
     )
 
     act11 = Activity.create!(
@@ -168,7 +168,7 @@ ActiveRecord::Base.transaction do
         elevation: 3222,
         elapsed_time: 8160,
         personal_record: false,
-        start_time: Time.zone.at(1449506820)
+        start_time: Time.zone.at(1575816908)
     )
 
     act12 = Activity.create!(
@@ -179,7 +179,7 @@ ActiveRecord::Base.transaction do
         elevation: 348,
         elapsed_time: 4160,
         personal_record: false,
-        start_time: Time.zone.at(1449506820)
+        start_time: Time.zone.at(1575919208)
     )
 
     act13 = Activity.create!(
@@ -190,7 +190,7 @@ ActiveRecord::Base.transaction do
         elevation: 160,
         elapsed_time: 5160,
         personal_record: false,
-        start_time: Time.zone.at(1449506820)
+        start_time: Time.zone.at(1576395608)
     )
 
     act14 = Activity.create!(
@@ -201,7 +201,7 @@ ActiveRecord::Base.transaction do
         elevation: 188,
         elapsed_time: 9160,
         personal_record: false,
-        start_time: Time.zone.at(1449506820)
+        start_time: Time.zone.at(1576665608)
     )
 
     act15 = Activity.create!(
@@ -212,18 +212,18 @@ ActiveRecord::Base.transaction do
         elevation: 1200,
         elapsed_time: 5100,
         personal_record: false,
-        start_time: Time.zone.at(1449506820)
+        start_time: Time.zone.at(1577637008)
     )
 
     act16 = Activity.create!(
-        user_id: 3,
+        user_id: 1,
         sport: 2,
         title: 'I do my hair toss',
         distance: 9.21,
         elevation: 1345,
         elapsed_time: 6160,
         personal_record: true,
-        start_time: Time.zone.at(1449506820)
+        start_time: Time.zone.at(1578511808)
     )
 
     kudo1 = Kudo.create!(
@@ -249,6 +249,26 @@ ActiveRecord::Base.transaction do
     kudo5 = Kudo.create!(
         user_id: 1,
         activity_id: 10
+    )
+
+    kudo6 = Kudo.create!(
+        user_id: 2,
+        activity_id: 10
+    )
+
+    kudo7 = Kudo.create!(
+        user_id: 3,
+        activity_id: 12
+    )
+
+    kudo8 = Kudo.create!(
+        user_id: 4,
+        activity_id: 16
+    )
+
+    kudo9 = Kudo.create!(
+        user_id: 4,
+        activity_id: 4
     )
 
     follow1 = Follow.create!(
