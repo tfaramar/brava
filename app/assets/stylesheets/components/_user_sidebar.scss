@@ -1,15 +1,29 @@
 .user-sidebar-container {
     width: 28%;
-    margin-left: 2%;
+    margin-left: 1%;
     padding: 0px 16px;
 }
 
 .sidebar-athlete-profile {
-    padding-top: 28px;
+    padding-top: 30px;
     margin: 76px 0 12px 0;
     background-color: #fff;
     border-radius: 4px;
     box-shadow: 0px 8px 24px rgba(1, 1, 15, 0.04);
+    position: relative;
+}
+
+.avatar-image-wrapper {
+    position: absolute;
+    height: 70px;
+    width: 70px;
+    left: 36%;
+    top: -16%;
+}
+
+.avatar-image {
+    border-radius: 50%;
+    box-shadow: 0px 8px 24px rgba(13,13,18,0.16);
 }
 
 .card-text-center {

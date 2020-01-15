@@ -24,7 +24,7 @@ const Nav = ({ currentUser, logout, removeErrors }) => {
 
     const personalNav = () => (
         <hgroup className="header-group">
-            <button className="header-button" onClick={logout}>Log Out</button>
+            <button className="header-button nav-logout" onClick={logout}>Log Out</button>
         </hgroup>
     );
 

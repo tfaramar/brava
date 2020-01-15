@@ -1,6 +1,7 @@
 import * as APIUtil from '../util/activity_api_util';
 
 export const RECEIVE_ACTIVITIES = 'RECEIVE_ACTIVITIES';
+export const RECEIVE_MORE_ACTIVITIES = 'RECEIVE_MORE_ACTIVITIES';
 export const RECEIVE_ACTIVITY = 'RECEIVE_ACTIVITY';
 export const REMOVE_ACTIVITY = 'REMOVE_ACTIVITY';
 export const RECEIVE_ACTIVITY_ERRORS = 'RECEIVE_ACTIVITY_ERRORS';
@@ -9,6 +10,11 @@ export const receiveActivities = data => ({
     type: RECEIVE_ACTIVITIES,
     data
 });
+
+export const receiveMoreActivities = data => ({
+    type: RECEIVE_MORE_ACTIVITIES,
+    data
+})
 
 export const receiveActivity = activity => ({
     type: RECEIVE_ACTIVITY,
@@ -25,13 +31,23 @@ export const receiveErrors = errors => ({
     errors
 });
 
-export const fetchActivities = () => dispatch => (
-    APIUtil.fetchActivities().then(res => (
+export const fetchActivities = (offset, my_feed) => dispatch => {
+    console.log('fetch activities action', offset, my_feed);
+    return APIUtil.fetchActivities(offset, my_feed).then(res => (
         dispatch(receiveActivities(res))
     ), err => (
         dispatch(receiveErrors(err.responseJSON))
     ))
-);
+};
+
+export const fetchMoreActivities = (offset, my_feed) => dispatch => {
+    console.log('fetch more activities action', offset, my_feed);
+    return APIUtil.fetchActivities(offset, my_feed).then(res => (
+        dispatch(receiveMoreActivities(res))
+    ), err => (
+        dispatch(receiveErrors(err.responseJSON))
+    ))
+};
 
 export const fetchActivity = activityId => dispatch => (
     APIUtil.fetchActivity(activityId).then(res => (

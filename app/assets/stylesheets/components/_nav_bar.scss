@@ -1,5 +1,5 @@
 .nav-bar-container {
-    margin: 0 5% 0 5%;
+    margin: 0 4% 0 4%;
     padding: 0 16px;
     display: flex;
     align-items: center;
@@ -28,7 +28,7 @@
     } 
 }
 
-.nav-login {
+.nav-login, .nav-logout {
     border: 1px solid lightgray;
     text-align: center;
     color: $text-black;
@@ -41,3 +41,4 @@
         background-color: $lightest-gray;
     }
 }
+
