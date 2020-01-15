@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
     has_many :activities, dependent: :destroy
     has_many :kudos, dependent: :destroy
+    has_many :routes
 
     has_many :following_users,
         class_name: 'Follow',

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :activities, only: [:create, :destroy, :update, :show, :index] do
       resources :kudos, only: [:create]
     end
+    resources :routes, only: [:create, :destroy, :show, :index]
     resources :kudos, only: [:destroy]
     resources :follows, only: [:destroy]
     resource :session, only: [:create, :destroy]

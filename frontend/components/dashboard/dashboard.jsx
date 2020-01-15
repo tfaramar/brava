@@ -8,10 +8,10 @@ import RouteBuilder from '../routes/routeBuilder';
 const Dashboard = () => {
     return (
         <div className="dashboard">
-            <UserSidebarContainer />
+            {/* <UserSidebarContainer />
             <ActivityIndexContainer />
-            <LinksSidebar />
-            {/* <RouteBuilder /> */}
+            <LinksSidebar /> */}
+            <RouteBuilder />
         </div>
     )   
 };

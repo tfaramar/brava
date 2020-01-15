@@ -69,6 +69,7 @@ class ActivityIndex extends React.Component {
         return (
             <div className="activity-feed-container" id="big-div">
                 <div className="feed-header">
+                    
                     <div className="feed-dropdown">
                         <button type="button" className="feed-toggle" onClick={() => toggleDropdown("dropdown")}>
                             <h2 className="toggle-title">{this.myFeed ? 'My Activities' : 'Following'}</h2>

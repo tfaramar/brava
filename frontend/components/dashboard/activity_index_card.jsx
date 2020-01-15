@@ -49,7 +49,8 @@ const ActivityIndexCard = ({ activity, user, kudos, currentUser, createKudo, del
             </div>
             <div className="entry-body">
                 <span className="icon">
-                    <i className="fas fa-bicycle"></i>
+                    <i class={activity.sport === 1 ? "fas fa-biking" : "fas fa-running"}></i>
+                    {/* <i className="fas fa-bicycle"></i> */}
                 </span>
                 <div className="entry-body-content">
                     <Link className="link" to={`/activities/${activity.id}`}>

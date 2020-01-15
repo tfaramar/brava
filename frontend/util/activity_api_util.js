@@ -1,6 +1,5 @@
 //add in params below
 export const fetchActivities = (offset = 0, my_feed = false) => {
-    console.log('fetch activities ajax', offset, my_feed);
     let URL = `/api/activities?offset=${offset}`
     if (my_feed) {
         URL += `&my_feed=${my_feed}`
