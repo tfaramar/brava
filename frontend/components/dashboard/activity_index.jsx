@@ -37,6 +37,7 @@ class ActivityIndex extends React.Component {
 
     changeActivityFeed() {
         this.myFeed = !this.myFeed;
+        this.offset = 0;
         this.props.fetchActivities(0, this.myFeed)
     };
 
