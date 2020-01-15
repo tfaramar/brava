@@ -5,38 +5,46 @@ class RouteBuilder extends React.Component {
         super(props)
 
         //this component was built with reference to the following article: https://blog.mapbox.com/map-hacks-directions-api-draw-tools-7557134622e9
-        mapboxgl.accessToken = 'pk.eyJ1IjoidGZhcmFtYXIiLCJhIjoiY2s1ZDBidW1hMDB2MjNtbzRobmwydzI3cCJ9.d9XMlETjhYMJAplujHt8Pg';
+        
 
         this.state = {
-            sport: 'cycling',
-            coordinates: '',
-            duration: '',
-            distance: ''
+            sport: 'walking',
+            coordinates: {},
+            duration: 0,
+            distance: 0
         }
 
         this.map = {};
         this.draw = {};
+        this.geocoder = new MapboxGeocoder({
+            accessToken: mapboxgl.accessToken,
+            mapboxgl: mapboxgl,
+            marker: false
+        })
 
         this.updateRoute = this.updateRoute.bind(this);
         this.addRoute = this.addRoute.bind(this);
         this.removeRoute = this.removeRoute.bind(this);
-        
+        this.createMap = this.createMap.bind(this);  
     }
 
     componentDidMount() {
-         //initialize map
+        //initialize map
         this.map = new mapboxgl.Map({
             container: 'map',
             style: 'mapbox://styles/mapbox/streets-v11',
             center: [-122.46, 37.7989], //starting centerpoint (SF), eventually should ask user for location and set based on that
-            zoom: 11, //initial zoom
+            zoom: 12, //initial zoom
             minZoom: 9 //limit zoom
         });
 
-        //initialize the Draw plugin and customize line style
-        this.draw = new MapboxDraw({
+        this.createMap();
+    }
+
+    createMap() {
+        this.draw = new MapboxDraw({ //initialize the Draw plugin and customize line style
             displayControlsDefault: false,
-            control: {
+            controls: {
                 line_string: true,
                 trash: true
             },
@@ -52,9 +60,9 @@ class RouteBuilder extends React.Component {
                     },
                     "paint": {
                         "line-color": "#fc5200",
-                        // "line-dasharray": [0.2, 2],
+                        "line-dasharray": [0.2, 2],
                         "line-width": 4,
-                        "line-opacity": 0.7
+                        "line-opacity": 0.0
                     }
                 },
                 //vertex point halos
@@ -79,21 +87,25 @@ class RouteBuilder extends React.Component {
                 }
             ]
         });
-
-        //add gl draw to map
-        this.map.addControl(this.draw);
         //add gl geocoder (searchbar and functionality) to map
-        this.map.addControl(
-            new MapboxGeocoder({
-                accessToken: mapboxgl.accessToken,
-                mapboxgl: mapboxgl
-            })
-        );
+        this.map.addControl(this.geocoder);
+        //add gl draw to map
+        this.map.addControl(this.draw, 'top-left'); //optional second param of where to add control
+
+        this.map.on('load', () => {
+            console.log('map loaded! controls added.')
+        });
+        //GL Draw control is aware of the below actions, so we want to call functions when these events happen
+        this.map.on('draw.create', this.updateRoute);
+        this.map.on('draw.update', this.updateRoute);
+        this.map.on('draw.delete', this.removeRoute);
+        this.map.on('click', this.updateRoute);
     }
 
     updateRoute() {
-        removeRoute(); //this will overwrite any existing route layers (function below)
+        this.removeRoute(); //this will overwrite any existing route layers (function below)
         let data = this.draw.getAll();
+        console.log(data.features)
         let answer = document.getElementById('calculated-line');
         let lastFeature = data.features.length - 1;
         let coords = data.features[lastFeature].geometry.coordinates;
@@ -103,19 +115,23 @@ class RouteBuilder extends React.Component {
 
     //response from getMatch will pass the directions response back to the updateroute function and update the stats box
     getMatch(e) {
-        //need token here?
+        
         //Question: is string interpolation faster than concatenation?
-        let url = `https://api.mapbox.com/directions/v5/mapbox/${this.sport}/` + e + '?geometries=geojson&steps=true&&access_token=' + mapboxgl.accessToken;
+        let url = `https://api.mapbox.com/directions/v5/mapbox/${this.state.sport}/` + e + '?geometries=geojson&steps=true&&access_token=' + mapboxgl.accessToken;
         let req = new XMLHttpRequest();
         req.responseType = 'json';
         req.open('GET', url, true);
         req.onload = () => {
             let jsonResponse = req.response;
-            let distance = jsonResponse.routes[0].distance*0.001; //this converts to km, modify to convert to miles
-            let duration = jsonResponse.routes[0].duration/60; //this converts to mins, modify to convert to seconds
-            document.getElementById('calculated-line').innerHTML = 'Distance: ' + distance.toFixed(2) + ' km<br>Duration: ' + duration.toFixed(2) + ' minutes'; //modify for appropriate stats
+            let distance = jsonResponse.routes[0].distance*0.000621371; //this converts to km, modify to convert to miles
+            let duration = jsonResponse.routes[0].duration/60; //this converts to minutes
+            this.setState({ 
+                distance: distance.toFixed(2),
+                duration: duration.toFixed(2)
+            })
+            //document.getElementById('calculated-line').innerHTML = 'Distance: ' + distance.toFixed(2) + ' mi<br>Duration: ' + duration.toFixed(2) + ' seconds'; //modify for appropriate stats
             let coords = jsonResponse.routes[0].geometry;
-            addRoute(coords); //add route to map
+            this.addRoute(coords); //add route to map
         };
         req.send(); //manually sends request to API!
     }
@@ -142,12 +158,14 @@ class RouteBuilder extends React.Component {
                     "line-cap": "round"
                 },
                 "paint": {
-                    "line-color": "#3b9ddd",
+                    "line-color": "#fc5200",
                     "line-width": 8,
                     "line-opacity": 0.8
                 }
             });
         };
+
+        this.setState({ coordinates: coords })
     }
 
     removeRoute() { //this will remove existing routes on map (source/layer) and clear out stats panel
@@ -161,20 +179,20 @@ class RouteBuilder extends React.Component {
     }
 
     render() {
-        //GL Draw control is aware of the below actions, so we want to call functions when these events happen
-        this.map.on('draw.create', this.updateRoute);
-        this.map.on('draw.update', this.updateRoute);
-        this.map.on('draw.delete', this.removeRoute);
-
-
         return (
             <div className="map-container">
                 <div id="map"></div>
                 <div className="bottom-panel">
                     {/* <ul className="inline-stats">
-                        <li>TYPE</li>
-                        <li>DISTANCE</li>
-                        <li>ELEV</li>
+                        <li>TYPE
+
+                        </li>
+                        <li>DISTANCE
+
+                        </li>
+                        <li>ELEV
+                            <p></p>
+                        </li>
                     </ul> */}
                     <div id='calculated-line'></div>
                 </div>
