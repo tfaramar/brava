@@ -9,10 +9,10 @@ class RouteBuilder extends React.Component {
         super(props)
 
         //this component was built with reference to the following article: https://blog.mapbox.com/map-hacks-directions-api-draw-tools-7557134622e9
-        
 
         this.state = {
-            sport: 'cycling',
+            activityType: 'cycling',
+            sport: 1,
             coordinates: {},
             duration: 0,
             distance: 0.00
@@ -109,7 +109,6 @@ class RouteBuilder extends React.Component {
     updateRoute() {
         this.removeRoute(); //this will overwrite any existing route layers (function below)
         let data = this.draw.getAll();
-        console.log(data.features)
         let answer = document.getElementById('calculated-line');
         let lastFeature = data.features.length - 1;
         let coords = data.features[lastFeature].geometry.coordinates;
@@ -121,7 +120,7 @@ class RouteBuilder extends React.Component {
     getMatch(e) {
         
         //Question: is string interpolation faster than concatenation?
-        let url = `https://api.mapbox.com/directions/v5/mapbox/${this.state.sport}/` + e + '?geometries=geojson&steps=true&&access_token=' + mapboxgl.accessToken;
+        let url = `https://api.mapbox.com/directions/v5/mapbox/${this.state.activityType}/` + e + '?geometries=geojson&steps=true&&access_token=' + mapboxgl.accessToken;
         let req = new XMLHttpRequest();
         req.responseType = 'json';
         req.open('GET', url, true);
@@ -170,6 +169,7 @@ class RouteBuilder extends React.Component {
         };
 
         this.setState({ coordinates: coords })
+        console.log(this.state.coordinates.coordinates);
     }
 
     removeRoute() { //this will remove existing routes on map (source/layer) and clear out stats panel
@@ -185,19 +185,26 @@ class RouteBuilder extends React.Component {
     toggleSport(e) {
         let run = document.getElementsByClassName("toggle-run")[0];
         let ride = document.getElementsByClassName("toggle-ride")[0];
-
-        if (e.currentTarget.classList.contains("toggle-run")) {
-            this.setState({ sport: 'walking' });
+        if (e.target.classList.contains("toggle-run")) {
+            this.setState({ 
+                activityType: 'walking',
+                sport: 2
+            });
             ride.classList.remove("active");
             run.classList.add("active");
-        } else if (e.currentTarget.classList.contains("toggle-ride")) {
-            this.setState({ sport: 'cycling' });
+        } else if (e.target.classList.contains("toggle-ride")) {
+            this.setState({ 
+                activityType: 'cycling',
+                sport: 1 
+            });
             run.classList.remove("active");
             ride.classList.add("active");
         }
     }
 
     render() {
+        // console.log(this.state.activityType);
+        // console.log(this.state.sport);
         return (
             <div className="map-container">
                 <div id="map"></div>
@@ -213,7 +220,7 @@ class RouteBuilder extends React.Component {
                 <div className="bottom-panel">
                     <ul className="inline-stats">
                         <li>
-                            <strong>{this.state.sport === "cycling" ? 'Ride' : 'Run'}</strong>
+                            <strong>{this.state.activityType === "cycling" ? 'Ride' : 'Run'}</strong>
                             <div>Route Type</div>
                         </li>
                         <li>
