@@ -23,6 +23,15 @@ class SessionForm extends React.Component {
         this.handleDemoSubmit = this.handleDemoSubmit.bind(this);
     }
 
+    componentDidMount() {
+        let images = ['shane-rounce-03cHOSwUXqs-unsplash.jpg', 'paxson-woelber-7rjr44Ityqo-unsplash.jpg', 'alex-gorham-jqrWv4jQw88-unsplash.jpg', 'sporlab-XiZ7pRvCzro-unsplash.jpg', 'tim-foster-8LI_Z_d6Wa4-unsplash.jpg'];
+        let randomImg = images[Math.floor(Math.random() * images.length)];
+        
+        let container = document.getElementsByClassName("login-form-container")[0];
+        container.setAttribute("style", `background-image: url('/assets/${randomImg}');`);
+        console.log(container);
+    }
+
     update(field) {
         return e => this.setState({
             [field]: e.currentTarget.value

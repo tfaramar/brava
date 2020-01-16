@@ -5,11 +5,63 @@
    width: 100%;
 }
 
+.save-wrapper {
+   z-index: 10; 
+   position: absolute;
+   top: 65px;
+   left: 55px;
+   box-shadow: 2px 2px 2px rgba(0,0,0,0.15);
+}
+
+.save-button {
+    background-color: rgba(252,82,0,1);
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    border-radius: 4px;
+    padding: 6px 16px;
+
+    &:hover {
+        background-color: orangered;
+    } 
+}
+
+.toggle-wrapper {
+    z-index: 10; 
+    position: absolute;
+    top: 65px;
+    left: 140px;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.15);
+}
+
+.toggle-ride {
+    background-color: rgba(255,255,255,0.95);
+    text-align: center;
+    color: #333333;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    padding: 6px 6px;
+}
+
+.toggle-run {
+    background-color: rgba(255,255,255,0.95);
+    text-align: center;
+    color: #333333;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    padding: 6px 6px;
+}
+
+.active {
+   background-color: #666666; 
+   color: rgba(255,255,255,0.95);
+}
+
 .bottom-panel {
     margin: 0 2% 0 2%;
     height: 38px;
     width: 90%;
-    padding: 6px 20px;
+    padding: 5px 20px;
     position: absolute;
     bottom: 45px;
     background-color: rgba(255,255,255,0.95);
@@ -20,5 +72,20 @@
 }
 
 .inline-stats {
+    width: 35%;
     display: flex;
+    justify-content: space-between;
+}
+
+.inline-stats strong {
+    display: block;
+    font-weight: 300;
+    font-size: 22px;
+    line-height: 1em;
+    color: #333333;
+}
+
+.inline-stats div {
+    color: #666666;
+    font-size: 12px;
 }

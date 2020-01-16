@@ -4,7 +4,9 @@ const LinksSidebar = () => {
     return (
         <div className="links-sidebar-container">
             <div className="links-card">
-                My Links here
+                <div className="links-card-text-center">
+                    <p className="text-small">For more information on how this clone was built, and to see other code that I've pushed, take a look at my <a href="https://github.com/tfaramar">Github!</a></p>
+                </div>  
             </div>   
         </div>
     )

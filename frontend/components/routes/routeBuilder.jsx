@@ -1,5 +1,9 @@
 import React from 'react';
 
+//TODO:
+//create a toggleSave function
+//find way to parse coordinates from FE to BE AND from BE to FE
+
 class RouteBuilder extends React.Component {
     constructor(props) {
         super(props)
@@ -8,10 +12,10 @@ class RouteBuilder extends React.Component {
         
 
         this.state = {
-            sport: 'walking',
+            sport: 'cycling',
             coordinates: {},
             duration: 0,
-            distance: 0
+            distance: 0.00
         }
 
         this.map = {};
@@ -178,22 +182,49 @@ class RouteBuilder extends React.Component {
         }
     }
 
+    toggleSport(e) {
+        let run = document.getElementsByClassName("toggle-run")[0];
+        let ride = document.getElementsByClassName("toggle-ride")[0];
+
+        if (e.currentTarget.classList.contains("toggle-run")) {
+            this.setState({ sport: 'walking' });
+            ride.classList.remove("active");
+            run.classList.add("active");
+        } else if (e.currentTarget.classList.contains("toggle-ride")) {
+            this.setState({ sport: 'cycling' });
+            run.classList.remove("active");
+            ride.classList.add("active");
+        }
+    }
+
     render() {
         return (
             <div className="map-container">
                 <div id="map"></div>
+                <div className="save-wrapper">
+                    <button className="save-button" type="button">
+                        Save
+                    </button>
+                </div>
+                <div className="toggle-wrapper">
+                    <button className="toggle-ride active" type="button" onClick={(e) => this.toggleSport(e)}>Ride</button>
+                    <button className="toggle-run" type="button" onClick={(e) => this.toggleSport(e)}>Run</button>
+                </div>
                 <div className="bottom-panel">
-                    {/* <ul className="inline-stats">
-                        <li>TYPE
-
+                    <ul className="inline-stats">
+                        <li>
+                            <strong>{this.state.sport === "cycling" ? 'Ride' : 'Run'}</strong>
+                            <div>Route Type</div>
                         </li>
-                        <li>DISTANCE
-
+                        <li>
+                            <strong>{`${this.state.distance} mi`}</strong>
+                            <div>Distance</div>
                         </li>
-                        <li>ELEV
-                            <p></p>
+                        <li>
+                            <strong>{this.state.duration === 0 ? `0s` : this.state.duration}</strong>
+                            <div>Est. Moving Time</div>
                         </li>
-                    </ul> */}
+                    </ul>
                     <div id='calculated-line'></div>
                 </div>
             </div>   

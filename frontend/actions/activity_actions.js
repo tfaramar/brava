@@ -32,7 +32,6 @@ export const receiveErrors = errors => ({
 });
 
 export const fetchActivities = (offset, my_feed) => dispatch => {
-    console.log('fetch activities action', offset, my_feed);
     return APIUtil.fetchActivities(offset, my_feed).then(res => (
         dispatch(receiveActivities(res))
     ), err => (
@@ -41,7 +40,6 @@ export const fetchActivities = (offset, my_feed) => dispatch => {
 };
 
 export const fetchMoreActivities = (offset, my_feed) => dispatch => {
-    console.log('fetch more activities action', offset, my_feed);
     return APIUtil.fetchActivities(offset, my_feed).then(res => (
         dispatch(receiveMoreActivities(res))
     ), err => (
