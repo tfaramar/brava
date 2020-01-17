@@ -1,13 +1,12 @@
 import React from 'react';
 
-//TODO:
-//create a toggleSave function
+import RouteModal from './route_modal';
+
 //find way to parse coordinates from FE to BE AND from BE to FE
 
 class RouteBuilder extends React.Component {
     constructor(props) {
         super(props)
-
         //this component was built with reference to the following article: https://blog.mapbox.com/map-hacks-directions-api-draw-tools-7557134622e9
 
         this.state = {
@@ -15,7 +14,8 @@ class RouteBuilder extends React.Component {
             sport: 1,
             coordinates: {},
             duration: 0,
-            distance: 0.00
+            distance: 0.00,
+            modal: false
         }
 
         this.map = {};
@@ -30,6 +30,7 @@ class RouteBuilder extends React.Component {
         this.addRoute = this.addRoute.bind(this);
         this.removeRoute = this.removeRoute.bind(this);
         this.createMap = this.createMap.bind(this);  
+        this.toggleModal = this.toggleModal.bind(this);
     }
 
     componentDidMount() {
@@ -176,7 +177,10 @@ class RouteBuilder extends React.Component {
         if (this.map.getSource('route')) {
             this.map.removeLayer('route');
             this.map.removeSource('route');
-            document.getElementById('calculated-line').innerHTML = '';
+            // let stats = Array.from(document.getElementsByClassName('inline-stat'))
+            // for (let item of stats) {
+            //     item.innerHTML = '0';
+            // }
         } else {
             return;
         }
@@ -202,6 +206,11 @@ class RouteBuilder extends React.Component {
         }
     }
 
+    toggleModal() {
+        console.log(this.state.modal);
+        this.state.modal === false ? this.setState({ modal: true }) : this.setState({ modal: false});
+    }
+
     render() {
         // console.log(this.state.activityType);
         // console.log(this.state.sport);
@@ -209,7 +218,7 @@ class RouteBuilder extends React.Component {
             <div className="map-container">
                 <div id="map"></div>
                 <div className="save-wrapper">
-                    <button className="save-button" type="button">
+                    <button className="save-button" type="button" onClick={() => this.toggleModal()}>
                         Save
                     </button>
                 </div>
@@ -223,18 +232,23 @@ class RouteBuilder extends React.Component {
                             <strong>{this.state.activityType === "cycling" ? 'Ride' : 'Run'}</strong>
                             <div>Route Type</div>
                         </li>
-                        <li>
-                            <strong>{`${this.state.distance} mi`}</strong>
+                        <li className="inline-stat">
+                            <strong className="inline-stat">{`${this.state.distance} mi`}</strong>
                             <div>Distance</div>
                         </li>
-                        <li>
-                            <strong>{this.state.duration === 0 ? `0s` : this.state.duration}</strong>
+                        <li className="inline-stat">
+                            <strong className="inline-stat">{this.state.duration === 0 ? `0s` : this.state.duration}</strong>
                             <div>Est. Moving Time</div>
                         </li>
                     </ul>
-                    <div id='calculated-line'></div>
                 </div>
-            </div>   
+                {this.state.modal === true ? <RouteModal 
+                        coordinates={this.state.coordinates}
+                        sport={this.state.sport}
+                        createRoute={this.props.createRoute}
+                        toggleModal={this.toggleModal}
+                /> : null}
+            </div>  
         )
     }
 };
