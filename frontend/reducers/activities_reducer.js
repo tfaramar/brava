@@ -9,7 +9,7 @@ import {
     RECEIVE_KUDO
 } from '../actions/kudos_actions';
 
-const ActivitiesReducer = (state = {}, action) => {
+const activitiesReducer = (state = {}, action) => {
     Object.freeze(state);
     let nextState = Object.assign({}, state);
 
@@ -38,4 +38,4 @@ const ActivitiesReducer = (state = {}, action) => {
     }
 };
 
-export default ActivitiesReducer;
+export default activitiesReducer;

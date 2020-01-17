@@ -1,17 +1,19 @@
 import React from 'react';
 
+import RouteModal from './route_modal';
+
 class RouteBuilder extends React.Component {
     constructor(props) {
         super(props)
-
         //this component was built with reference to the following article: https://blog.mapbox.com/map-hacks-directions-api-draw-tools-7557134622e9
-        
 
         this.state = {
-            sport: 'walking',
+            activityType: 'cycling',
+            sport: 1,
             coordinates: {},
             duration: 0,
-            distance: 0
+            distance: 0.00,
+            modal: false
         }
 
         this.map = {};
@@ -26,6 +28,7 @@ class RouteBuilder extends React.Component {
         this.addRoute = this.addRoute.bind(this);
         this.removeRoute = this.removeRoute.bind(this);
         this.createMap = this.createMap.bind(this);  
+        this.toggleModal = this.toggleModal.bind(this);
     }
 
     componentDidMount() {
@@ -93,7 +96,7 @@ class RouteBuilder extends React.Component {
         this.map.addControl(this.draw, 'top-left'); //optional second param of where to add control
 
         this.map.on('load', () => {
-            console.log('map loaded! controls added.')
+            // console.log('map loaded! controls added.')
         });
         //GL Draw control is aware of the below actions, so we want to call functions when these events happen
         this.map.on('draw.create', this.updateRoute);
@@ -105,7 +108,6 @@ class RouteBuilder extends React.Component {
     updateRoute() {
         this.removeRoute(); //this will overwrite any existing route layers (function below)
         let data = this.draw.getAll();
-        console.log(data.features)
         let answer = document.getElementById('calculated-line');
         let lastFeature = data.features.length - 1;
         let coords = data.features[lastFeature].geometry.coordinates;
@@ -117,7 +119,7 @@ class RouteBuilder extends React.Component {
     getMatch(e) {
         
         //Question: is string interpolation faster than concatenation?
-        let url = `https://api.mapbox.com/directions/v5/mapbox/${this.state.sport}/` + e + '?geometries=geojson&steps=true&&access_token=' + mapboxgl.accessToken;
+        let url = `https://api.mapbox.com/directions/v5/mapbox/${this.state.activityType}/` + e + '?geometries=geojson&steps=true&&access_token=' + mapboxgl.accessToken;
         let req = new XMLHttpRequest();
         req.responseType = 'json';
         req.open('GET', url, true);
@@ -165,38 +167,84 @@ class RouteBuilder extends React.Component {
             });
         };
 
-        this.setState({ coordinates: coords })
+        this.setState({ coordinates: coords.coordinates });
     }
 
     removeRoute() { //this will remove existing routes on map (source/layer) and clear out stats panel
         if (this.map.getSource('route')) {
             this.map.removeLayer('route');
             this.map.removeSource('route');
-            document.getElementById('calculated-line').innerHTML = '';
+            // let stats = Array.from(document.getElementsByClassName('inline-stat'))
+            // for (let item of stats) {
+            //     item.innerHTML = '0';
+            // }
         } else {
             return;
         }
     }
 
+    toggleSport(e) {
+        let run = document.getElementsByClassName("toggle-run")[0];
+        let ride = document.getElementsByClassName("toggle-ride")[0];
+        if (e.target.classList.contains("toggle-run")) {
+            this.setState({ 
+                activityType: 'walking',
+                sport: 2
+            });
+            ride.classList.remove("active");
+            run.classList.add("active");
+        } else if (e.target.classList.contains("toggle-ride")) {
+            this.setState({ 
+                activityType: 'cycling',
+                sport: 1 
+            });
+            run.classList.remove("active");
+            ride.classList.add("active");
+        }
+    }
+
+    toggleModal() {
+        this.state.modal === false ? this.setState({ modal: true }) : this.setState({ modal: false});
+    }
+
     render() {
+        // console.log(this.state.activityType);
+        // console.log(this.state.sport);
         return (
             <div className="map-container">
                 <div id="map"></div>
-                <div className="bottom-panel">
-                    {/* <ul className="inline-stats">
-                        <li>TYPE
-
-                        </li>
-                        <li>DISTANCE
-
-                        </li>
-                        <li>ELEV
-                            <p></p>
-                        </li>
-                    </ul> */}
-                    <div id='calculated-line'></div>
+                <div className="save-wrapper">
+                    <button className="save-button" type="button" onClick={() => this.toggleModal()}>
+                        Save
+                    </button>
                 </div>
-            </div>   
+                <div className="toggle-wrapper">
+                    <button className="toggle-ride active" type="button" onClick={(e) => this.toggleSport(e)}>Ride</button>
+                    <button className="toggle-run" type="button" onClick={(e) => this.toggleSport(e)}>Run</button>
+                </div>
+                <div className="bottom-panel">
+                    <ul className="inline-stats">
+                        <li>
+                            <strong>{this.state.activityType === "cycling" ? 'Ride' : 'Run'}</strong>
+                            <div>Route Type</div>
+                        </li>
+                        <li className="inline-stat">
+                            <strong className="inline-stat">{`${this.state.distance} mi`}</strong>
+                            <div>Distance</div>
+                        </li>
+                        <li className="inline-stat">
+                            <strong className="inline-stat">{this.state.duration === 0 ? `0s` : this.state.duration}</strong>
+                            <div>Est. Moving Time</div>
+                        </li>
+                    </ul>
+                </div>
+                {this.state.modal === true ? <RouteModal 
+                        coordinates={this.state.coordinates}
+                        sport={this.state.sport}
+                        createRoute={this.props.createRoute}
+                        toggleModal={this.toggleModal}
+                /> : null}
+            </div>  
         )
     }
 };

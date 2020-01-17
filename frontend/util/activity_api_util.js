@@ -13,7 +13,7 @@ export const fetchActivities = (offset = 0, my_feed = false) => {
 
 export const fetchActivity = activityId => (
     $.ajax({
-        url: `api/activities/${activityId}`,
+        url: `/api/activities/${activityId}`,
         method: 'GET'
     })
 );
@@ -28,14 +28,14 @@ export const createActivity = activity => (
 
 export const deleteActivity = activityId => (
     $.ajax({
-        url: `api/activities/${activityId}`,
+        url: `/api/activities/${activityId}`,
         method: 'DELETE'
     })
 );
 
 export const updateActivity = activity => (
     $.ajax({
-        url: `api/activities/${activity.id}`,
+        url: `/api/activities/${activity.id}`,
         method: 'PATCH',
         data: { activity }
     })
