@@ -15,7 +15,13 @@
     font-family: $logo-font;
 }
 
-.nav-signup {
+.header-group {
+    width: 300px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.nav-signup, .create-route {
     background-color: rgba(252,82,0,1);
     text-align: center;
     color: white;

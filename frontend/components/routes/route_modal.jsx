@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 class RouteModal extends React.Component {
     constructor(props) {
@@ -18,18 +19,26 @@ class RouteModal extends React.Component {
     }
 
     handleSubmit(e) {
+        let stringCoordinates = JSON.stringify(this.props.coordinates)
+
         e.preventDefault();
-        //createRoute
+        const route = ({
+            title: this.state.title,
+            sport: this.props.sport,
+            coordinates: stringCoordinates
+        });
+        this.props.createRoute(route)
+            .then(() => this.props.history.push("/"));
     }
 
-    stringifyCoordinates(arr) {
-        //2d arr
-    }
+    // stringifyCoordinates(arr) {
+    //     JSON.stringify(arr);
+    // }
 
     render() {
         return (
             <div className='modal-background'>
-                <form className='save-route-form'>
+                <form className='save-route-form' onSubmit={this.handleSubmit}>
                     <div className='save-route-header'>
                         <h1>Save</h1>
                     </div>
@@ -59,4 +68,4 @@ class RouteModal extends React.Component {
     }
 }
 
-export default RouteModal;
+export default withRouter(RouteModal);

@@ -24,6 +24,9 @@ const Nav = ({ currentUser, logout, removeErrors }) => {
 
     const personalNav = () => (
         <hgroup className="header-group">
+            <Link to="/routes/new">
+                <button className="header-button create-route">Create Route</button>
+            </Link>
             <button className="header-button nav-logout" onClick={logout}>Log Out</button>
         </hgroup>
     );

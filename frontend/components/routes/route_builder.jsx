@@ -2,8 +2,6 @@ import React from 'react';
 
 import RouteModal from './route_modal';
 
-//find way to parse coordinates from FE to BE AND from BE to FE
-
 class RouteBuilder extends React.Component {
     constructor(props) {
         super(props)
@@ -98,7 +96,7 @@ class RouteBuilder extends React.Component {
         this.map.addControl(this.draw, 'top-left'); //optional second param of where to add control
 
         this.map.on('load', () => {
-            console.log('map loaded! controls added.')
+            // console.log('map loaded! controls added.')
         });
         //GL Draw control is aware of the below actions, so we want to call functions when these events happen
         this.map.on('draw.create', this.updateRoute);
@@ -169,8 +167,7 @@ class RouteBuilder extends React.Component {
             });
         };
 
-        this.setState({ coordinates: coords })
-        console.log(this.state.coordinates.coordinates);
+        this.setState({ coordinates: coords.coordinates });
     }
 
     removeRoute() { //this will remove existing routes on map (source/layer) and clear out stats panel
@@ -207,7 +204,6 @@ class RouteBuilder extends React.Component {
     }
 
     toggleModal() {
-        console.log(this.state.modal);
         this.state.modal === false ? this.setState({ modal: true }) : this.setState({ modal: false});
     }
 
