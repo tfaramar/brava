@@ -29,7 +29,6 @@ class ActivityIndex extends React.Component {
     trackScrolling() {
         const wrappedElement = document.getElementById('big-div');
         if (this.isBottom(wrappedElement)) {
-            console.log('big div bottom reached');
             this.offset += 5;
             this.props.fetchMoreActivities(this.offset, this.myFeed);
         }

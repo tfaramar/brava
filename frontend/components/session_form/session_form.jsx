@@ -24,12 +24,11 @@ class SessionForm extends React.Component {
     }
 
     componentDidMount() {
-        let images = ['shane-rounce-03cHOSwUXqs-unsplash.jpg', 'paxson-woelber-7rjr44Ityqo-unsplash.jpg', 'alex-gorham-jqrWv4jQw88-unsplash.jpg', 'sporlab-XiZ7pRvCzro-unsplash.jpg', 'tim-foster-8LI_Z_d6Wa4-unsplash.jpg'];
+        let images = [window.login_imgURL1, window.login_imgURL2, window.login_imgURL3, window.login_imgURL4, window.login_imgURL5];
         let randomImg = images[Math.floor(Math.random() * images.length)];
         
         let container = document.getElementsByClassName("login-form-container")[0];
-        container.setAttribute("style", `background-image: url('/assets/${randomImg}');`);
-        console.log(container);
+        container.setAttribute("style", `background-image: url('${randomImg}');`);
     }
 
     update(field) {

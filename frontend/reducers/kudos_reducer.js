@@ -18,12 +18,11 @@ const kudosReducer = (state = {}, action) => {
         case RECEIVE_KUDO:
             return Object.assign({}, state, {  
                 [action.kudo.id]: action.kudo
-            })
+            });
         case REMOVE_KUDO:
-            let nextState = Object.assign({}, state)
-            delete nextState[action.kudo.id]
-            console.log('inside state:', nextState);
-            return nextState
+            let nextState = Object.assign({}, state);
+            delete nextState[action.kudo.id];
+            return nextState;
         default:
             return state;
     }

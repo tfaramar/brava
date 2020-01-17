@@ -95,9 +95,9 @@ class RouteBuilder extends React.Component {
         //add gl draw to map
         this.map.addControl(this.draw, 'top-left'); //optional second param of where to add control
 
-        this.map.on('load', () => {
-            // console.log('map loaded! controls added.')
-        });
+        // this.map.on('load', () => {
+        //     console.log('map loaded! controls added.')
+        // });
         //GL Draw control is aware of the below actions, so we want to call functions when these events happen
         this.map.on('draw.create', this.updateRoute);
         this.map.on('draw.update', this.updateRoute);
