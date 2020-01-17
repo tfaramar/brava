@@ -6,7 +6,7 @@ class RouteBuilder extends React.Component {
     constructor(props) {
         super(props)
         //this component was built with reference to the following article: https://blog.mapbox.com/map-hacks-directions-api-draw-tools-7557134622e9
-
+        mapboxgl.accessToken = `${window.mapboxAPIKey}`;
         this.state = {
             activityType: 'cycling',
             sport: 1,
@@ -117,7 +117,8 @@ class RouteBuilder extends React.Component {
 
     //response from getMatch will pass the directions response back to the updateroute function and update the stats box
     getMatch(e) {
-        
+        mapboxgl.accessToken = `${mapboxAPIKey}`;
+
         //Question: is string interpolation faster than concatenation?
         let url = `https://api.mapbox.com/directions/v5/mapbox/${this.state.activityType}/` + e + '?geometries=geojson&steps=true&&access_token=' + mapboxgl.accessToken;
         let req = new XMLHttpRequest();
