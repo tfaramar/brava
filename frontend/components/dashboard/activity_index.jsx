@@ -81,6 +81,9 @@ class ActivityIndex extends React.Component {
                 </div>
                 
                 <div className="activity-feed">
+                    <div className="promo-card">
+                        
+                    </div>
                     {
                       activities.reverse().map(act => <ActivityIndexCard key={act.id} activity={act} user={users[act.userId]} kudos={findKudos(kudos, act.kudoIds)} currentUser={currentUser} createKudo={createKudo} deleteKudo={deleteKudo}/>)  
                     }

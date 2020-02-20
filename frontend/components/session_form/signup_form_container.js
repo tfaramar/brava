@@ -7,7 +7,7 @@ import SessionForm from './session_form';
 const mapStateToProps = ({ errors }) => ({
     errors: errors.session,
     formType: 'Sign Up',
-    message: 'Join Strava today, it\'s Free.'
+    message: 'Join Brava today, it\'s Free.'
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -6,7 +6,13 @@ const LinksSidebar = () => {
             <div className="links-card">
                 <div className="links-card-text-center">
                     <h1 className="links-header">Hey there!</h1>
-                    <p className="text-small">For more information on how this clone was built, and to see other code that I've pushed, take a look at my <a href="https://github.com/tfaramar">Github!</a></p>
+                    <p className="text-med">Thanks for exploring Brava. For more information on this project, check out the repo on <strong><a className="fav-link" href="https://github.com/tfaramar/strava/">Github.</a></strong></p>
+                    <p className="text-med">You can also find me here:</p>
+                    <div className="fav-links">
+                        <a className="fav-link" href="https://www.linkedin.com/in/tatiana-faramarzi-598897174/"><i class="fab fa-linkedin-in"></i></a>
+                        <a className="fav-link" href="https://github.com/tfaramar"><i class="fab fa-github"></i></a>
+                        <a className="fav-link" href="https://angel.co/tatiana-faramarzi"><i class="fab fa-angellist"></i></a>  
+                    </div>
                 </div>  
             </div>   
         </div>

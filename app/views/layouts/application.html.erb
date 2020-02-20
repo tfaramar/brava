@@ -32,6 +32,8 @@
     <script src="https://kit.fontawesome.com/b5bfb11c19.js" crossorigin="anonymous"></script>
   
     <link href="https://fonts.googleapis.com/css?family=Kanit:800&display=swap" rel="stylesheet">
+    <%= favicon_link_tag asset_path('favicon-32x32.png') %>
+
     <script type="text/javascript">
       window.mapboxAPIKey = "<%= Rails.application.credentials.mapbox[:api_key] %>"
     </script>
