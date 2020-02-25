@@ -20,6 +20,8 @@ ActiveRecord::Base.transaction do
         country: 'United States'
     )
 
+    user1.photo.attach(io: File.open("/Users/tatianafaramarzi/Documents/strava_clone_userimages/demo-avatar.jpg"), filename: "demo-avatar.jpg")
+
     user2 = User.create!(
         first_name: 'James',
         last_name: 'Baldwin',
@@ -29,6 +31,8 @@ ActiveRecord::Base.transaction do
         state: '',
         country: 'France'
     )
+
+    user2.photo.attach(io: File.open("/Users/tatianafaramarzi/Documents/strava_clone_userimages/baldwin-james.jpg"), filename: "baldwin-james.jpg")
 
     user3 = User.create!(
         first_name: 'Marjane',
@@ -40,6 +44,9 @@ ActiveRecord::Base.transaction do
         country: 'United States'
     )
 
+    user3.photo.attach(io: File.open("/Users/tatianafaramarzi/Documents/strava_clone_userimages/satrapi-marjane.jpg"), filename: "satrapi-marjane.jpg")
+
+
     user4 = User.create!(
         first_name: 'Raymond',
         last_name: 'Carver',
@@ -49,6 +56,8 @@ ActiveRecord::Base.transaction do
         state: 'WA',
         country: 'United States'
     )
+
+    user4.photo.attach(io: File.open("/Users/tatianafaramarzi/Documents/strava_clone_userimages/carver-raymond.jpg"), filename: "carver-raymond.jpg")
 
     act1 = Activity.create!(
         user_id: 1,
