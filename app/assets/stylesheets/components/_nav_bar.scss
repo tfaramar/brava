@@ -50,9 +50,19 @@
     display: inline-block;
 }
 
-.nd-dropdown-content, .ni-dropdown-content, .cir-dropdown-content {
+.nd-dropdown-content {
     display: none;
     position: absolute;
+    left: 0;
+    background-color: white;
+    min-width: 10rem;
+    z-index: 100; 
+} 
+
+.ni-dropdown-content, .cir-dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
     background-color: white;
     min-width: 10rem;
     z-index: 100; 
