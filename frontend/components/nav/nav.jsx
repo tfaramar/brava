@@ -30,11 +30,15 @@ const Nav = ({ currentUser, logout, removeErrors }) => {
             <button className="header-button nav-logout" onClick={logout}>Log Out</button> */}
             <div className="left-group">
                 <div className="nav-dash-dropdown">
-                    <button type="button" className="dashboard-toggle">
-                        <p className="text-med">Dashboard <i className="fas fa-angle-down"></i></p>
-                    </button>
+                    <Link to="/">
+                        <button type="button" className="dashboard-toggle">
+                            <p className="text-med">Dashboard <i className="fas fa-angle-down"></i></p>
+                        </button>
+                    </Link>
                     <div className="nd-dropdown-content">
-                        <p>Activity Feed</p>
+                        <Link to="/">
+                            <p>Activity Feed</p>
+                        </Link>
                         <p>My Routes</p>
                     </div>
                 </div>
@@ -49,7 +53,7 @@ const Nav = ({ currentUser, logout, removeErrors }) => {
                     </button>
                     <div className="ni-dropdown-content">
                         <p>My Profile</p>
-                        <p>Logout</p>
+                        <p onClick={logout}>Logout</p>
                     </div>
                 </div>
                 <div className="nav-circle-dropdown">
@@ -58,7 +62,9 @@ const Nav = ({ currentUser, logout, removeErrors }) => {
                     </button>
                     <div className="cir-dropdown-content">
                         <p>Add Activity</p>
-                        <p>Create a Route</p>
+                        <Link to="/routes/new">
+                            <p>Create a Route</p>
+                        </Link>
                     </div>
                 </div>
                 
