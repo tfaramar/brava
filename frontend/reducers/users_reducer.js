@@ -13,7 +13,7 @@ const usersReducer = (state = {}, action) => {
                 [action.currentUser.id]: action.currentUser
             })
         case RECEIVE_ACTIVITIES:
-            return Object.assign({}, action.data.users)
+            return Object.assign({}, state, action.data.users)
         case RECEIVE_MORE_ACTIVITIES:
             return Object.assign({}, state, action.data.users)
         case RECEIVE_USER:

@@ -3,6 +3,11 @@ class Api::UsersController < ApplicationController
     def create
         @user = User.new(user_params)
         if @user.save
+            Follow.create!(
+                user_id: 1,
+                follower_id: @user.id
+            )
+            @user.photo.attach(io: File.open("/Users/tatianafaramarzi/Documents/strava_clone_userimages/default-avatar.jpg"), filename: "default-avatar.jpg")
             login(@user)
             render :show
         else
@@ -27,6 +32,6 @@ class Api::UsersController < ApplicationController
     private
 
     def user_params
-        params.require(:user).permit(:email, :password, :first_name, :last_name)
+        params.require(:user).permit(:email, :password, :first_name, :last_name, :photo)
     end 
 end

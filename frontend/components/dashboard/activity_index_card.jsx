@@ -38,7 +38,7 @@ const ActivityIndexCard = ({ activity, user, kudos, currentUser, createKudo, del
         <div className="entry-card">
             <div className="entry-header">
                 <div className="avatar-wrapper">
-                    <i className="fas fa-user-circle"></i>
+                    <img src={user.photoUrl} alt="user avatar"/>
                 </div>
                 <div className="entry-header-content">
                     <Link className="link" to={`/athletes/${user.id}`}>

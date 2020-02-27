@@ -43,7 +43,7 @@ class SessionForm extends React.Component {
             email: 'tfaramar@example.com',
             password: 'password'
         }
-        this.props.processForm(user)
+        this.demo(user);
     }
 
     handleSubmit(e) {
@@ -52,7 +52,47 @@ class SessionForm extends React.Component {
         const snakeCaseUser = Object.fromEntries(
             Object.entries(user).map(([k, v]) => [camelToSnakeCase(k), v])
         );
-        this.props.processForm(snakeCaseUser)
+        this.props.processForm(snakeCaseUser);
+    }
+
+    demo(user) {
+        const intervalSpeed = 120;
+
+        const { email, password } = user;
+        const demoEmailTime = email.length * intervalSpeed;
+        const demoPasswordTime = password.length * intervalSpeed;
+        const buffer = intervalSpeed * 2;
+        const totalDemoTime = demoEmailTime + demoPasswordTime + buffer;
+
+        this.demoEmail(email, intervalSpeed);
+        setTimeout(() => this.demoPassword(password, intervalSpeed), demoEmailTime);   
+        setTimeout(() => this.props.processForm(user), totalDemoTime)
+    }
+
+    demoEmail(email, intervalSpeed) {
+        let i = 0;
+
+        setInterval(() => {
+            if (i <= email.length) {
+                this.setState({ email: email.slice(0, i) })
+                i++
+            } else {
+                clearInterval()
+            }
+        }, intervalSpeed);
+    }
+
+    demoPassword(password, intervalSpeed) {
+        let j = 0;
+
+        setInterval(() => {
+            if (j <= password.length) {
+                this.setState({ password: password.slice(0, j) })
+                j++
+            } else {
+                clearInterval();
+            }
+        }, intervalSpeed);
     }
 
     renderErrors() {

@@ -5,19 +5,35 @@
 }
 
 .links-card {
-    padding-top: 28px;
     margin: 76px 0 12px 0;
     background-color: #fff;
     border-radius: 4px;
-    box-shadow: 0px 8px 24px rgba(1, 1, 15, 0.04);
+    box-shadow: 0px 8px 24px rgba(1, 1, 15, 0.05);
+    min-height: 13rem;
 }
 
 .links-header {
-    color: #347173;
-    font-size: 20px;
+    color: $link-blue;
+    font-size: 1.6rem;
     font-weight: bold;
 }
 
 .links-card-text-center {
-    padding: 16px;
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 13rem;
+}
+
+.fav-links {
+    display: flex;
+    justify-content: space-around;
+    font-size: 2rem;
+}
+
+.fav-link {
+    &:hover {
+        color: $dark-link-blue;
+    }
 }
