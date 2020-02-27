@@ -9,6 +9,7 @@ ActiveRecord::Base.transaction do
     User.destroy_all
     Activity.destroy_all
     Kudo.destroy_all
+    Follow.destroy_all
 
     user1 = User.create!(
         first_name: 'Tatiana',

@@ -85,7 +85,7 @@ class ActivityIndex extends React.Component {
                         
                     </div>
                     {
-                      activities.reverse().map(act => <ActivityIndexCard key={act.id} activity={act} user={users[act.userId]} kudos={findKudos(kudos, act.kudoIds)} currentUser={currentUser} createKudo={createKudo} deleteKudo={deleteKudo}/>)  
+                      activities.length > 0 ? activities.reverse().map(act => <ActivityIndexCard key={act.id} activity={act} user={users[act.userId]} kudos={findKudos(kudos, act.kudoIds)} currentUser={currentUser} createKudo={createKudo} deleteKudo={deleteKudo}/>) : <h2>You don't have any activities at this time. Use the plus sign in the top-right corner to get started!</h2>
                     }
                 </div>
             </div>

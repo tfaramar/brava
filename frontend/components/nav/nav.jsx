@@ -47,7 +47,7 @@ const Nav = ({ currentUser, logout, removeErrors }) => {
                 <div className="nav-image-dropdown">
                     <button type="button" className="nav-image-toggle">
                         <div className="nav-image-wrapper">
-                            <img className="nav-image" src={window.demo_avatar_imgURL} alt="Your profile photo" />
+                            <img className="nav-image" src={currentUser.id === 1 ? window.demo_avatar_imgURL : currentUser.photoUrl} alt="Your profile photo" />
                         </div>
                         <i className="fas fa-angle-down"></i>
                     </button>
