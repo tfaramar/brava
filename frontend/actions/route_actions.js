@@ -26,9 +26,10 @@ export const receiveErrors = errors => ({
 });
 
 export const fetchRoutes = () => dispatch => (
-    APIUtil.fetchRoutes().then(res => (
-        dispatch(receiveRoutes(res))
-    ), err => (
+    APIUtil.fetchRoutes().then(res => {
+        console.log(res);
+        return dispatch(receiveRoutes(res))
+    }, err => (
         dispatch(receiveErrors(err.responseJSON))
     ))
 );

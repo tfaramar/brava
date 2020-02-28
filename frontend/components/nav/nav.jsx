@@ -39,7 +39,9 @@ const Nav = ({ currentUser, logout, removeErrors }) => {
                         <Link to="/">
                             <p>Activity Feed</p>
                         </Link>
-                        <p>My Routes</p>
+                        <Link to="/routes">
+                            <p>My Routes</p>
+                        </Link>
                     </div>
                 </div>
             </div>
@@ -52,7 +54,6 @@ const Nav = ({ currentUser, logout, removeErrors }) => {
                         <i className="fas fa-angle-down"></i>
                     </button>
                     <div className="ni-dropdown-content">
-                        <p>My Profile</p>
                         <p onClick={logout}>Logout</p>
                     </div>
                 </div>
