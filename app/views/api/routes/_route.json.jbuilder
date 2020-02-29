@@ -1,1 +1,1 @@
-json.extract! route, :id, :user_id, :title, :sport, :coordinates
+json.extract! route, :id, :user_id, :title, :sport, :coordinates, :created_at

@@ -6,10 +6,9 @@ import {
 
 const routesReducer = (state = {}, action) => {
     Object.freeze(state);
-    
     switch(action.type) {
         case RECEIVE_ROUTES:
-            return Object.assign({}, state, action.data.routes);
+            return Object.assign({}, state, action.data);
         case RECEIVE_ROUTE:
             return Object.assign({}, state, {
                 [action.route.id]: action.route

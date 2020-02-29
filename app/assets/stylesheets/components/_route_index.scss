@@ -1,0 +1,70 @@
+.routes-page-container {
+    height: 100vh;
+    margin: 2rem 3.5rem;
+    box-sizing: border-box;
+}
+
+.route-index-title {
+    font-weight: bold;
+    font-size: 2rem;
+    color: $text-black;
+    text-align: left;
+    margin-bottom: 1.5rem;
+
+}
+
+.ri-create-route-button {
+    background-color: rgba(252,82,0,1);
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 4px;
+    padding: 6px 6px;
+    width: 10rem;
+    margin-bottom: 2.5rem;
+
+    &:hover {
+        background-color: $darkest-orange;
+    } 
+}
+
+.routes-page-header {
+    min-height: 6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border-bottom: 1px solid $light-gray;
+}
+
+.ri-toggle-wrapper {
+    max-width: 9rem;
+    border: 1px solid $light-gray;
+    margin: 1.5rem 0;
+}
+
+.ri-toggle-ride, .ri-toggle-run {
+    background-color: rgba(255,255,255,0.95);
+    text-align: center;
+    font-size: 14px;
+    color: #333333;
+    padding: 6px 10px;
+}
+
+.ri-active {
+   background-color: #666666; 
+   color: rgba(255,255,255,0.95);
+}
+
+.ri-route-feed {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+}
+
+.route-card {
+    background-color: whitesmoke;
+    margin-right: 1.5rem;
+    margin-bottom: 1.5rem;
+    width: 23.4%;
+}
