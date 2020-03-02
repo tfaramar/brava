@@ -42,7 +42,7 @@ class RouteIndex extends React.Component {
                     </div>
                     <div className="ri-route-feed">
                        {
-                           routes.length > 0 ? routes.map(route => <RouteIndexCard key={route.id} route={route} deleteRoute={deleteRoute}/>) : <h2>You haven't created any {this.state.type} routes.</h2>
+                           routes && routes.length > 0 ? routes.map(route => <RouteIndexCard key={route.id} route={route} deleteRoute={deleteRoute}/>) : <h2>You haven't created any {this.state.type} routes.</h2>
                        } 
                     </div>
                 </div>
