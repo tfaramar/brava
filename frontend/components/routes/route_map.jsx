@@ -4,28 +4,25 @@ class RouteMap extends React.Component {
     constructor(props) {
         super(props);
 
-        this.route = JSON.parse(this.props.coordinates);
-        
-        this.state = {
-            map: ""
-        }
+        this.route = JSON.parse(this.props.coordinates); 
+        this.map = {};
     }
 
     componentDidMount() {
         let routeCopy = this.route.slice();
-        console.log("ROUTE COPY", routeCopy);
         let routeCenter = routeCopy.sort()[Math.floor(routeCopy.length/2)]
-        console.log("ROUTE CENTER", routeCenter);
+        
         mapboxgl.accessToken = `${window.mapboxAPIKey}`;
         this.map = new mapboxgl.Map({
             container: this.props.container,
             style: 'mapbox://styles/mapbox/streets-v11',
             center: routeCenter,
-            zoom: 9,
+            zoom: 10,
             interactive: false
         });
-        console.log("ROUTE", this.route);
+
         let map = this.map;
+        let route = this.route;
         map.on('load', function() {
             map.addLayer({
                 "id": "route",
@@ -37,7 +34,7 @@ class RouteMap extends React.Component {
                         "properties": {},
                         "geometry": {
                             "type": "LineString",
-                            "coordinates": this.route
+                            "coordinates": route
                         }
                     }
                 },
@@ -48,7 +45,7 @@ class RouteMap extends React.Component {
                 "paint": {
                     "line-color": "#fc5200",
                     "line-width": 4,
-                    "line-opacity": 0.0
+                    "line-opacity": 0.8
                 }
             });
         });
@@ -56,7 +53,7 @@ class RouteMap extends React.Component {
 
     render() {
         return (
-            <div id={this.props.container}></div>
+            <div className="route-map" id={this.props.container}></div>
         )
     }
 }

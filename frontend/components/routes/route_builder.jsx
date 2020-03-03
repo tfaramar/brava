@@ -167,7 +167,7 @@ class RouteBuilder extends React.Component {
                 }
             });
         };
-
+        console.log("GEOMETRY COORDINATES IN ROUTE BUILDER", coords);
         this.setState({ coordinates: coords.coordinates });
     }
 
