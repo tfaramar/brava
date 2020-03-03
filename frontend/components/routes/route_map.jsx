@@ -4,24 +4,21 @@ class RouteMap extends React.Component {
     constructor(props) {
         super(props);
 
-        this.route = JSON.parse(this.props.coordinates);
-        
-        this.state = {
-            map: ""
-        }
+        this.route = JSON.parse(this.props.coordinates); 
+        this.map = {};
     }
 
     componentDidMount() {
         let routeCopy = this.route.slice();
         console.log("ROUTE COPY", routeCopy);
         let routeCenter = routeCopy.sort()[Math.floor(routeCopy.length/2)]
-        console.log("ROUTE CENTER", routeCenter);
+        
         mapboxgl.accessToken = `${window.mapboxAPIKey}`;
         this.map = new mapboxgl.Map({
             container: this.props.container,
             style: 'mapbox://styles/mapbox/streets-v11',
             center: routeCenter,
-            zoom: 9,
+            zoom: 10,
             interactive: false
         });
         console.log("ROUTE", this.route);
@@ -56,7 +53,7 @@ class RouteMap extends React.Component {
 
     render() {
         return (
-            <div id={this.props.container}></div>
+            <div className="route-map" id={this.props.container}></div>
         )
     }
 }
