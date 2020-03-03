@@ -10,7 +10,7 @@ const RouteIndexCard = ({ route }) => {
                 <RouteMap coordinates={route.coordinates} container={`map-route-${route.id}`}/>
             </div>
             <div className="route-content">
-                <h3>{route.title}</h3>
+                <h2 className="route-title">{route.title}</h2>
                 <p>Created on {formatDate(route.createdAt)}</p>
             </div>
         </div>

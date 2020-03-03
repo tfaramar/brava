@@ -10,7 +10,6 @@ class RouteMap extends React.Component {
 
     componentDidMount() {
         let routeCopy = this.route.slice();
-        console.log("ROUTE COPY", routeCopy);
         let routeCenter = routeCopy.sort()[Math.floor(routeCopy.length/2)]
         
         mapboxgl.accessToken = `${window.mapboxAPIKey}`;
@@ -21,8 +20,9 @@ class RouteMap extends React.Component {
             zoom: 10,
             interactive: false
         });
-        console.log("ROUTE", this.route);
+
         let map = this.map;
+        let route = this.route;
         map.on('load', function() {
             map.addLayer({
                 "id": "route",
@@ -34,7 +34,7 @@ class RouteMap extends React.Component {
                         "properties": {},
                         "geometry": {
                             "type": "LineString",
-                            "coordinates": this.route
+                            "coordinates": route
                         }
                     }
                 },
@@ -45,7 +45,7 @@ class RouteMap extends React.Component {
                 "paint": {
                     "line-color": "#fc5200",
                     "line-width": 4,
-                    "line-opacity": 0.0
+                    "line-opacity": 0.8
                 }
             });
         });

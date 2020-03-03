@@ -1,5 +1,4 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
 
 import RouteIndexCard from './route_index_card';
 
@@ -8,7 +7,8 @@ class RouteIndex extends React.Component {
         super(props);
 
         this.state = {
-            type: "cycling"
+            type: "cycling",
+            sport: 1
         }
 
         this.handleClick = this.handleClick.bind(this);
@@ -19,7 +19,25 @@ class RouteIndex extends React.Component {
     }
 
     toggleSport(e) {
-        console.log('sport toggled!')
+        let run = document.getElementsByClassName("ri-toggle-run")[0];
+        let ride = document.getElementsByClassName("ri-toggle-ride")[0];
+        if (e.target.classList.contains("ri-toggle-run")) {
+            console.log("running!")
+            this.setState({
+                type: "running",
+                sport: 2
+            });
+            ride.classList.remove("ri-active");
+            run.classList.add("ri-active");
+        } else if (e.target.classList.contains("ri-toggle-ride")) {
+            console.log("cycling!")
+            this.setState({
+                type: "cycling",
+                sport: 1
+            });
+            run.classList.remove("ri-active");
+            ride.classList.add("ri-active");
+        }
     }
 
     handleClick() {
@@ -28,7 +46,7 @@ class RouteIndex extends React.Component {
 
     render () {
         const { routes, errors, deleteRoute } = this.props;
-        console.log('render!')
+        console.log('ROUTES', routes);
         return (
             <div className="routes-page-container">
                 <div className="routes-page-header">
@@ -42,7 +60,7 @@ class RouteIndex extends React.Component {
                     </div>
                     <div className="ri-route-feed">
                        {
-                           routes && routes.length > 0 ? routes.map(route => <RouteIndexCard key={route.id} route={route} deleteRoute={deleteRoute}/>) : <h2>You haven't created any {this.state.type} routes.</h2>
+                           routes && routes.length > 0 ? routes.filter(route => route.sport === this.state.sport).map(route => <RouteIndexCard key={route.id} route={route} deleteRoute={deleteRoute}/>) : <h2>You haven't created any {this.state.type} routes.</h2>
                        } 
                     </div>
                 </div>

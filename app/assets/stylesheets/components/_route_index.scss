@@ -49,6 +49,7 @@
     font-size: 14px;
     color: #333333;
     padding: 6px 10px;
+    width: 50%;
 }
 
 .ri-active {
@@ -66,7 +67,24 @@
     background-color: whitesmoke;
     margin-right: 1.75rem;
     margin-bottom: 1.75rem;
-    width: 23.4%;
+    width: 22.25%;
+    min-width: 200px;
+}
+
+.route-content {
+    display: flex;
+    margin: 0.5rem 1rem;
+    flex-flow: column;
+    justify-content: flex-start;
+}
+
+.route-content p {
+    font-size: 0.75rem;
+}
+
+.route-title {
+    margin: 0.5rem 0rem;
+    font-weight: bold;
 }
 
 .route-map-embed {
