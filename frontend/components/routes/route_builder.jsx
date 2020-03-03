@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { formatDuration } from '../../util/helper_functions';
 import RouteModal from './route_modal';
 
 class RouteBuilder extends React.Component {
@@ -127,10 +128,11 @@ class RouteBuilder extends React.Component {
         req.onload = () => {
             let jsonResponse = req.response;
             let distance = jsonResponse.routes[0].distance*0.000621371; //this converts to km, modify to convert to miles
-            let duration = jsonResponse.routes[0].duration/60; //this converts to minutes
+            let duration = Math.floor(jsonResponse.routes[0].duration); //this converts to minutes
+            console.log("DURATION FROM MAPBOX", duration, typeof duration)
             this.setState({ 
                 distance: distance.toFixed(2),
-                duration: duration.toFixed(2)
+                duration: duration
             })
             //document.getElementById('calculated-line').innerHTML = 'Distance: ' + distance.toFixed(2) + ' mi<br>Duration: ' + duration.toFixed(2) + ' seconds'; //modify for appropriate stats
             let coords = jsonResponse.routes[0].geometry;
@@ -234,14 +236,16 @@ class RouteBuilder extends React.Component {
                             <div>Distance</div>
                         </li>
                         <li className="inline-stat">
-                            <strong className="inline-stat">{this.state.duration === 0 ? `0s` : this.state.duration}</strong>
+                            <strong className="inline-stat">{this.state.duration === 0 ? `0s` : formatDuration(this.state.duration)}</strong>
                             <div>Est. Moving Time</div>
                         </li>
-                    </ul>
+                    </ul> 
                 </div>
                 {this.state.modal === true ? <RouteModal 
                         coordinates={this.state.coordinates}
                         sport={this.state.sport}
+                        duration={this.state.duration}
+                        distance={this.state.distance}
                         createRoute={this.props.createRoute}
                         toggleModal={this.toggleModal}
                 /> : null}
