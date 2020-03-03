@@ -28,12 +28,8 @@ class RouteModal extends React.Component {
             coordinates: stringCoordinates
         });
         this.props.createRoute(route)
-            .then(() => this.props.history.push("/"));
+            .then(() => this.props.history.push("/routes/"));
     }
-
-    // stringifyCoordinates(arr) {
-    //     JSON.stringify(arr);
-    // }
 
     render() {
         return (
