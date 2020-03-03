@@ -1,10 +1,10 @@
-# Strava
+# Brava
 
-Strava is a browser-based application allows runners and cyclists to track their workouts, and connect with other athletes. This application allows users to create and save outdoor workout routes, see stats for their workouts, and view the recent workouts of the athletes that they follow.
+Brava is a browser-based application allows runners and cyclists to track their workouts, and connect with other athletes. This application allows users to create and save outdoor workout routes, see stats for their workouts, and view the recent workouts of the athletes that they follow.
 
-This rendition of Strava was built using React/Redux for the frontend and Ruby on Rails for the backend, with PostgresQL to manage the database. All styling was accomplished with Sass-compiled CSS, and I used the Mapbox API for all of my mapping needs. This project, as of January 17, 2019, was developed in approximately ten days. Please scroll down to see a list of features I plan to implement soon! 
+The application was built using React/Redux for the frontend and Ruby on Rails for the backend, with PostgreSQL to manage the database. All styling was accomplished with Sass-compiled CSS, and I used the Mapbox API for all of my geographic needs. 
 
-[Take a look at the application here.](https://tatiana-strava-clone.herokuapp.com/#/)
+[Check out Brava!](https://tatiana-strava-clone.herokuapp.com/#/)
 
 ## Current Features
 
@@ -51,12 +51,8 @@ On the frontend, I created two actions for fetching multiple activities: one tha
 
 ## Future features
 
-* Use AWS S3 buckets to host user avatar images and activity-specific images
-* Use the Mapbox Terrain plugin to calculate elevation for route-based workouts
-* Modify the Route Builder to include instructions on how to interact with the map
 * Create a form through which users can manually input an activity, and optionally assign a route to it
 * User the ReCharts API to build a graph of the user's elevation gain over the course of their activity
-* Create an activity-specific show page
 * Implement user profile pages
 
 
