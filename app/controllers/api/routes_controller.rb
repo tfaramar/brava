@@ -37,6 +37,6 @@ class Api::RoutesController < ApplicationController
 
     private
     def route_params
-        params.require(:route).permit(:sport, :title, :coordinates)
+        params.require(:route).permit(:sport, :title, :coordinates, :est_time, :distance)
     end
 end

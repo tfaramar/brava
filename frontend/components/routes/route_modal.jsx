@@ -25,7 +25,9 @@ class RouteModal extends React.Component {
         const route = ({
             title: this.state.title,
             sport: this.props.sport,
-            coordinates: stringCoordinates
+            coordinates: stringCoordinates,
+            distance: this.props.distance,
+            est_time: this.props.duration
         });
         this.props.createRoute(route)
             .then(() => this.props.history.push("/routes/"));
