@@ -82,7 +82,7 @@ class ActivityIndex extends React.Component {
                 
                 <div className="activity-feed">
                     <div className="promo-card">
-                        
+                        <p className="promo-message">Meet the creator</p>
                     </div>
                     {
                       activities.length > 0 ? activities.reverse().map(act => <ActivityIndexCard key={act.id} activity={act} user={users[act.userId]} kudos={findKudos(kudos, act.kudoIds)} currentUser={currentUser} createKudo={createKudo} deleteKudo={deleteKudo}/>) : <h2>You don't have any activities at this time. Use the plus sign in the top-right corner to get started!</h2>

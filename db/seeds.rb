@@ -10,6 +10,7 @@ ActiveRecord::Base.transaction do
     Activity.destroy_all
     Kudo.destroy_all
     Follow.destroy_all
+    # Route.destroy_all
 
     user1 = User.create!(
         first_name: 'Tatiana',
@@ -61,7 +62,7 @@ ActiveRecord::Base.transaction do
     user4.photo.attach(io: File.open("/Users/tatianafaramarzi/Documents/strava_clone_userimages/carver-raymond.jpg"), filename: "carver-raymond.jpg")
 
     act1 = Activity.create!(
-        user_id: 1,
+        user_id: user1.id,
         sport: 1,
         title: 'How to beat the flu',
         distance: 40.73,
@@ -72,7 +73,7 @@ ActiveRecord::Base.transaction do
     )
 
     act2 = Activity.create!(
-        user_id: 1,
+        user_id: user1.id,
         sport: 2,
         title: 'Type 2 fun',
         distance: 5.76,
@@ -83,7 +84,7 @@ ActiveRecord::Base.transaction do
     )
 
     act3 = Activity.create!(
-        user_id: 2,
+        user_id: user2.id,
         sport: 2,
         title: 'Nothing can be changed until it is faced!',
         distance: 8.19,
@@ -94,7 +95,7 @@ ActiveRecord::Base.transaction do
     )
 
     act4 = Activity.create!(
-        user_id: 3,
+        user_id: user3.id,
         sport: 1,
         title: 'I\'m unstoppable on my bicycle',
         distance: 22.37,
@@ -105,7 +106,7 @@ ActiveRecord::Base.transaction do
     )
 
     act5 = Activity.create!(
-        user_id: 3,
+        user_id: user3.id,
         sport: 1,
         title: 'Freedom in the headlands',
         distance: 8.19,
@@ -116,7 +117,7 @@ ActiveRecord::Base.transaction do
     )
 
     act6 = Activity.create!(
-        user_id: 1,
+        user_id: user1.id,
         sport: 1,
         title: 'Afternoon Ride',
         distance: 15.54,
@@ -127,7 +128,7 @@ ActiveRecord::Base.transaction do
     )
 
     act7 = Activity.create!(
-        user_id: 3,
+        user_id: user3.id,
         sport: 2,
         title: 'Afternoon run',
         distance: 4.70,
@@ -138,7 +139,7 @@ ActiveRecord::Base.transaction do
     )
 
     act8 = Activity.create!(
-        user_id: 2,
+        user_id: user2.id,
         sport: 2,
         title: 'Walking on Beale St',
         distance: 1.00,
@@ -149,7 +150,7 @@ ActiveRecord::Base.transaction do
     )
 
     act9 = Activity.create!(
-        user_id: 4,
+        user_id: user4.id,
         sport: 1,
         title: 'Riding out that hangover',
         distance: 2.45,
@@ -160,7 +161,7 @@ ActiveRecord::Base.transaction do
     )
 
     act10 = Activity.create!(
-        user_id: 1,
+        user_id: user1.id,
         sport: 1,
         title: 'Bike camping forever.',
         distance: 22.80,
@@ -171,7 +172,7 @@ ActiveRecord::Base.transaction do
     )
 
     act11 = Activity.create!(
-        user_id: 1,
+        user_id: user1.id,
         sport: 1,
         title: 'Presidio ridez',
         distance: 23.88,
@@ -182,7 +183,7 @@ ActiveRecord::Base.transaction do
     )
 
     act12 = Activity.create!(
-        user_id: 4,
+        user_id: user4.id,
         sport: 2,
         title: 'I was walking.',
         distance: 1.37,
@@ -193,7 +194,7 @@ ActiveRecord::Base.transaction do
     )
 
     act13 = Activity.create!(
-        user_id: 1,
+        user_id: user1.id,
         sport: 2,
         title: 'Morning run',
         distance: 2.45,
@@ -204,7 +205,7 @@ ActiveRecord::Base.transaction do
     )
 
     act14 = Activity.create!(
-        user_id: 3,
+        user_id: user3.id,
         sport: 2,
         title: 'Golden gate park ramble',
         distance: 3.37,
@@ -215,7 +216,7 @@ ActiveRecord::Base.transaction do
     )
 
     act15 = Activity.create!(
-        user_id: 2,
+        user_id: user2.id,
         sport: 1,
         title: 'Sunset ride',
         distance: 11.98,
@@ -226,7 +227,7 @@ ActiveRecord::Base.transaction do
     )
 
     act16 = Activity.create!(
-        user_id: 1,
+        user_id: user1.id,
         sport: 2,
         title: 'I do my hair toss',
         distance: 9.21,
@@ -237,73 +238,73 @@ ActiveRecord::Base.transaction do
     )
 
     kudo1 = Kudo.create!(
-        user_id: 1,
-        activity_id: 1
+        user_id: user1.id,
+        activity_id: act1.id
     )
 
     kudo2 = Kudo.create!(
-        user_id: 2,
-        activity_id: 1
+        user_id: user2.id,
+        activity_id: act1.id
     )
 
     kudo3 = Kudo.create!(
-        user_id: 2,
-        activity_id: 4
+        user_id: user2.id,
+        activity_id: act4.id
     )
 
     kudo4 = Kudo.create!(
-        user_id: 3,
-        activity_id: 14
+        user_id: user3.id,
+        activity_id: act14.id
     )
 
     kudo5 = Kudo.create!(
-        user_id: 1,
-        activity_id: 10
+        user_id: user1.id,
+        activity_id: act10.id
     )
 
     kudo6 = Kudo.create!(
-        user_id: 2,
-        activity_id: 10
+        user_id: user2.id,
+        activity_id: act10.id
     )
 
     kudo7 = Kudo.create!(
-        user_id: 3,
-        activity_id: 12
+        user_id: user3.id,
+        activity_id: act12.id
     )
 
     kudo8 = Kudo.create!(
-        user_id: 4,
-        activity_id: 16
+        user_id: user4.id,
+        activity_id: act16.id
     )
 
     kudo9 = Kudo.create!(
-        user_id: 4,
-        activity_id: 4
+        user_id: user4.id,
+        activity_id: act4.id
     )
 
     follow1 = Follow.create!(
-        user_id: 2,
-        follower_id: 1
+        user_id: user2.id,
+        follower_id: user1.id
     )
 
     follow2 = Follow.create!(
-        user_id: 3,
-        follower_id: 1
+        user_id: user3.id,
+        follower_id: user1.id
     )
 
     follow3 = Follow.create!(
-        user_id: 3,
-        follower_id: 2
+        user_id: user3.id,
+        follower_id: user2.id
     )
 
     follow4 = Follow.create!(
-        user_id: 4,
-        follower_id: 1
+        user_id: user4.id,
+        follower_id: user1.id
     )
 
     follow4 = Follow.create!(
-        user_id: 1,
-        follower_id: 4
+        user_id: user1.id,
+        follower_id: user4.id
     )
 
 end

@@ -46,7 +46,9 @@ class RouteIndex extends React.Component {
 
     render () {
         const { routes, errors, deleteRoute } = this.props;
-        console.log('ROUTES', routes);
+
+        let theseRoutes = routes && routes.length > 0 ? routes.filter(route => route.sport === this.state.sport) : [];
+
         return (
             <div className="routes-page-container">
                 <div className="routes-page-header">
@@ -60,7 +62,7 @@ class RouteIndex extends React.Component {
                     </div>
                     <div className="ri-route-feed">
                        {
-                           routes && routes.length > 0 ? routes.filter(route => route.sport === this.state.sport).map(route => <RouteIndexCard key={route.id} route={route} deleteRoute={deleteRoute}/>) : <h2>You haven't created any {this.state.type} routes.</h2>
+                           routes && theseRoutes.length > 0 ? theseRoutes.map(route => <RouteIndexCard key={route.id} route={route} deleteRoute={deleteRoute}/>) : <h2>You haven't created any {this.state.type} routes.</h2>
                        } 
                     </div>
                 </div>
