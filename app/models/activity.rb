@@ -5,7 +5,7 @@ class Activity < ApplicationRecord
     validates :sport, inclusion: { in: [1, 2, 3] }
 
     belongs_to :user
-    # belongs_to :route
+    belongs_to :route, optional: true
     # one route can be associated with multiple activities
 
     has_many :kudos, dependent: :destroy
