@@ -62,9 +62,9 @@ const Nav = ({ currentUser, logout, removeErrors }) => {
                         <div className="nav-circle"><i className="fas fa-plus-circle"></i></div>
                     </button>
                     <div className="cir-dropdown-content">
-                        <Link to="/activities/new">
+                        {/* <Link to="/activities/new">
                             <p>Add Activity</p>
-                        </Link>
+                        </Link> */}
                         <Link to="/routes/new">
                             <p>Create a Route</p>
                         </Link>

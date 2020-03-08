@@ -1,5 +1,11 @@
-.user-sidebar-container {
-    width: 28%;
+.sidebar {
+    display: flex;
+    flex-flow: column;
+}
+
+.user-sidebar-container, .links-sidebar-container {
+    width: 90%;
+    max-width: 320px;
     margin-left: 1%;
     padding: 0px 16px;
 }
