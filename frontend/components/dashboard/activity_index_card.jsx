@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { formatDateFull, formatTime } from '../../util/helper_functions';
-
+import RouteMap from '../routes/route_map';
 
 const ActivityIndexCard = ({ activity, user, kudos, currentUser, createKudo, deleteKudo }) => {
     
@@ -71,10 +71,9 @@ const ActivityIndexCard = ({ activity, user, kudos, currentUser, createKudo, del
                     </ul>
                 </div>
                 
-                
             </div>
             <div className="entry-media">
-
+                {activity.route ? <RouteMap coordinates={activity.route.coordinates} container={`map-route-${activity.routeId}`} /> : null}
             </div>
             <div className="entry-footer">
                 <p className="kudo-count">{kudos.length ? `${kudos.length} kudos` : 'Be the first to give kudos!'}</p>
