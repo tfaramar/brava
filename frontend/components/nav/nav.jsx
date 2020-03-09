@@ -17,17 +17,17 @@ const Nav = ({ currentUser, logout, removeErrors }) => {
     };
 
     const sessionLinks = () => (
-        <ul className="session-nav-group">
-            {sessionButton}  
-        </ul>
+        <> 
+            <div></div>
+            <ul className="session-nav-group">
+                {sessionButton}
+            </ul>
+        </>
+        
     );
 
     const personalNav = () => (
         <>
-            {/* <Link to="/routes/new">
-                <button className="header-button create-route">Create Route</button>
-            </Link>
-            <button className="header-button nav-logout" onClick={logout}>Log Out</button> */}
             <div className="left-group">
                 <div className="nav-dash-dropdown">
                     <Link to="/">
