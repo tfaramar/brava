@@ -1,13 +1,13 @@
 .sidebar {
     display: flex;
     flex-flow: column;
+    width: 27%;
 }
 
 .user-sidebar-container {
     width: 90%;
-    max-width: 320px;
-    margin-left: 1%;
-    padding: 0px 16px;
+    margin-left: 2%;
+    padding: 0px 18px;
 }
 
 .sidebar-athlete-profile {

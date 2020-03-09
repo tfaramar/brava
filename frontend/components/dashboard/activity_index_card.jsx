@@ -41,9 +41,9 @@ const ActivityIndexCard = ({ activity, user, kudos, currentUser, createKudo, del
                     <img className="avatar-image" src={user.photoUrl} alt="user avatar"/>
                 </div>
                 <div className="entry-header-content">
-                    <Link className="link" to={`/athletes/${user.id}`}>
+                    {/* <Link className="link" to={`/athletes/${user.id}`}> */}
                         <h2 className="entry-owner">{`${user.firstName} ${user.lastName}`}</h2>
-                    </Link>
+                    {/* </Link> */}
                     <p className="timestamp">{formatDateFull(activity.startTime)}</p>
                 </div>
             </div>
@@ -52,9 +52,9 @@ const ActivityIndexCard = ({ activity, user, kudos, currentUser, createKudo, del
                     <i className={activity.sport === 1 ? "fas fa-biking" : "fas fa-running"}></i>
                 </span>
                 <div className="entry-body-content">
-                    <Link className="link" to={`/activities/${activity.id}`}>
+                    {/* <Link className="link" to={`/activities/${activity.id}`}> */}
                         <h1 className="entry-title">{activity.title}</h1>
-                    </Link>
+                    {/* </Link> */}
                     <ul className="list-stats">
                         <li className="stat">
                             <div className="stat-subtext">Distance</div>

@@ -30,7 +30,7 @@ class UserSidebar extends React.Component {
                                 </li>
                                 <li className="sidebar-stat">
                                     <div className="sidebar-stat-subtext">Activities</div>
-                                    <div className="sidebar-stat-text">{currentUser.activityIds ? currentUser.activityIds.length : ""}</div>
+                                    <div className="sidebar-stat-text">{currentUser.activityIds ? currentUser.activityIds.length : "0"}</div>
                                 </li>
                             </ul>
                         </div>

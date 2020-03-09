@@ -6,6 +6,7 @@ class RouteMap extends React.Component {
 
         this.route = JSON.parse(this.props.coordinates); 
         this.map = {};
+        this.zoom = this.route.length > 60 ? 10 : 11;
     }
 
     componentDidMount() {
@@ -17,7 +18,7 @@ class RouteMap extends React.Component {
             container: this.props.container,
             style: 'mapbox://styles/mapbox/streets-v11',
             center: routeCenter,
-            zoom: 10,
+            zoom: this.zoom,
             interactive: false
         });
 
