@@ -1,40 +1,31 @@
-// .links-sidebar-container {
-//     width: 90%;
-//     max-width: 320px;
-//     margin-left: 1%;
-//     padding: 0px 16px;
-// }
 
-.links-card {
-    margin: 76px 0 12px 0;
-    background-color: #fff;
-    border-radius: 4px;
-    box-shadow: 0px 8px 24px rgba(1, 1, 15, 0.05);
-    min-height: 13rem;
+.challenge-sidebar-container {
+    width: 20%;
+    margin: 76px 18px 0 18px;
 }
 
-.links-header {
-    color: $link-blue;
-    font-size: 1.6rem;
-    font-weight: bold;
-}
-
-.links-card-text-center {
-    padding: 2.5rem;
+.challenge {
+    border-bottom: 1px solid $lightest-gray;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 13rem;
+    flex-flow: row;
+    padding: 1rem 1rem 1.5rem 1rem;
 }
 
-.fav-links {
+.challenge i {
+    padding-top: 0.25rem;
+    font-size: 1.5rem;
+}
+
+.challenge-content {
     display: flex;
-    justify-content: space-around;
-    font-size: 2rem;
+    flex-flow: column;
+    padding-left: 1rem;
 }
 
-.fav-link {
-    &:hover {
-        color: $dark-link-blue;
-    }
+.challenge-header {
+    margin: 0 0 0.5rem 0;
+}
+
+.challenge-content p {
+    font-size: 12px;
 }
