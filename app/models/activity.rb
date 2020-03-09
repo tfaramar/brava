@@ -6,7 +6,6 @@ class Activity < ApplicationRecord
 
     belongs_to :user
     belongs_to :route, optional: true
-    # one route can be associated with multiple activities
 
     has_many :kudos, dependent: :destroy
     has_many :kudoers,

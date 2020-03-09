@@ -9,6 +9,17 @@ class UserSidebar extends React.Component {
     render() {
         const {currentUser} = this.props;
 
+        const latestActivity = (
+            <>
+                <p className="text-small">Latest Activity</p>
+                <p className="text-small"><strong>{currentUser.latestActivity ? currentUser.latestActivity.title : ""} &#9679;</strong> {currentUser.latestActivity ? formatDate(currentUser.latestActivity.start_time) : ""}</p>
+            </>
+            )
+
+        const noActivity = (
+            <p className="text-small">Get started by tracking your first workout!</p>
+        )
+
         return (
             <div className="sidebar">
                 <div className="user-sidebar-container">
@@ -35,8 +46,7 @@ class UserSidebar extends React.Component {
                             </ul>
                         </div>
                         <div className="card-footer">
-                            <p className="text-small">Latest Activity</p>
-                            <p className="text-small"><strong>{currentUser.latestActivity ? currentUser.latestActivity.title : ""} &#9679;</strong> {currentUser.latestActivity ? formatDate(currentUser.latestActivity.start_time) : ""}</p>
+                            {currentUser.latestActivity ? latestActivity : noActivity}
                         </div>
                     </div>
 
