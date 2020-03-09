@@ -14,8 +14,7 @@ class UserSidebar extends React.Component {
                 <div className="user-sidebar-container">
                     <div className="sidebar-athlete-profile">
                         <div className="avatar-image-wrapper">
-                            {/* <img className="avatar-image" src={window.demo_avatar_imgURL} alt="Your profile photo" /> */}
-                            <img className="avatar-image" src={currentUser.photoUrl} alt="Your profile photo" />
+                           <img className="avatar-image" src={currentUser.photoUrl} alt="Your profile photo" />
                         </div>
                         <div className="card-text-center">
                             <h1>{currentUser.firstName} {currentUser.lastName}</h1>
