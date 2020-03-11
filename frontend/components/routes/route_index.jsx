@@ -22,7 +22,6 @@ class RouteIndex extends React.Component {
         let run = document.getElementsByClassName("ri-toggle-run")[0];
         let ride = document.getElementsByClassName("ri-toggle-ride")[0];
         if (e.target.classList.contains("ri-toggle-run")) {
-            console.log("running!")
             this.setState({
                 type: "running",
                 sport: 2
@@ -30,7 +29,6 @@ class RouteIndex extends React.Component {
             ride.classList.remove("ri-active");
             run.classList.add("ri-active");
         } else if (e.target.classList.contains("ri-toggle-ride")) {
-            console.log("cycling!")
             this.setState({
                 type: "cycling",
                 sport: 1

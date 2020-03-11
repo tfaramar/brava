@@ -96,9 +96,6 @@ class RouteBuilder extends React.Component {
         //add gl draw to map
         this.map.addControl(this.draw, 'top-left'); //optional second param of where to add control
 
-        // this.map.on('load', () => {
-        //     console.log('map loaded! controls added.')
-        // });
         //GL Draw control is aware of the below actions, so we want to call functions when these events happen
         this.map.on('draw.create', this.updateRoute);
         this.map.on('draw.update', this.updateRoute);
@@ -129,7 +126,6 @@ class RouteBuilder extends React.Component {
             let jsonResponse = req.response;
             let distance = jsonResponse.routes[0].distance*0.000621371; //this converts to km, modify to convert to miles
             let duration = Math.floor(jsonResponse.routes[0].duration); //this converts to minutes
-            console.log("DURATION FROM MAPBOX", duration, typeof duration)
             this.setState({ 
                 distance: distance.toFixed(2),
                 duration: duration
@@ -169,7 +165,6 @@ class RouteBuilder extends React.Component {
                 }
             });
         };
-        console.log("GEOMETRY COORDINATES IN ROUTE BUILDER", coords);
         this.setState({ coordinates: coords.coordinates });
     }
 
@@ -211,8 +206,6 @@ class RouteBuilder extends React.Component {
     }
 
     render() {
-        // console.log(this.state.activityType);
-        // console.log(this.state.sport);
         return (
             <div className="map-container">
                 <div id="map"></div>
