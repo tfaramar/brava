@@ -86,7 +86,7 @@ class ActivityIndex extends React.Component {
                         </div>
                         <div className="promo-content">
                             <p><strong>Thanks for checking out Brava!</strong> You can learn more about this project by visiting the Github repo below.</p>
-                            <button type="button"><a href="https://github.com/tfaramar/strava" target="_blank">Brava on Github</a></button>
+                            <button type="button"><a href="https://github.com/tfaramar/strava" target="_blank">See Project</a></button>
                         </div>
                     </div>
                     {
