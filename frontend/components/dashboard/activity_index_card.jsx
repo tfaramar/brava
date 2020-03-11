@@ -73,7 +73,7 @@ const ActivityIndexCard = ({ activity, user, kudos, currentUser, createKudo, del
                 
             </div>
             <div className="entry-media">
-                {activity.route ? <RouteMap coordinates={activity.route.coordinates} container={`map-route-${activity.routeId}`} /> : null}
+                {activity.route ? <RouteMap coordinates={activity.route.coordinates} container={`map-route-${activity.routeId}-${activity.id}`} /> : null}
             </div>
             <div className="entry-footer">
                 <p className="kudo-count">{kudos.length ? `${kudos.length} kudos` : 'Be the first to give kudos!'}</p>
