@@ -5,6 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'open-uri'
+
 ActiveRecord::Base.transaction do
     User.destroy_all
     Activity.destroy_all
@@ -22,7 +24,8 @@ ActiveRecord::Base.transaction do
         country: 'United States'
     )
 
-    user1.photo.attach(io: File.open("/Users/tatianafaramarzi/Documents/strava_clone_userimages/demo-avatar.jpg"), filename: "demo-avatar.jpg")
+    file1 = open('https://brava-seeds.s3-us-west-1.amazonaws.com/demo-avatar.jpg')
+    user1.photo.attach(io: file1, filename: "demo-avatar.jpg")
 
     user2 = User.create!(
         first_name: 'James',
@@ -34,7 +37,8 @@ ActiveRecord::Base.transaction do
         country: 'France'
     )
 
-    user2.photo.attach(io: File.open("/Users/tatianafaramarzi/Documents/strava_clone_userimages/baldwin-james.jpg"), filename: "baldwin-james.jpg")
+    file2 = open('https://brava-seeds.s3-us-west-1.amazonaws.com/baldwin-james.jpg')
+    user2.photo.attach(io: file2, filename: "baldwin-james.jpg")
 
     user3 = User.create!(
         first_name: 'Marjane',
@@ -46,7 +50,8 @@ ActiveRecord::Base.transaction do
         country: 'United States'
     )
 
-    user3.photo.attach(io: File.open("/Users/tatianafaramarzi/Documents/strava_clone_userimages/satrapi-marjane.jpg"), filename: "satrapi-marjane.jpg")
+    file3 = open('https://brava-seeds.s3-us-west-1.amazonaws.com/satrapi-marjane.jpg')
+    user3.photo.attach(io: file3, filename: "satrapi-marjane.jpg")
 
 
     user4 = User.create!(
@@ -59,7 +64,8 @@ ActiveRecord::Base.transaction do
         country: 'United States'
     )
 
-    user4.photo.attach(io: File.open("/Users/tatianafaramarzi/Documents/strava_clone_userimages/carver-raymond.jpg"), filename: "carver-raymond.jpg")
+    file4 = open('https://brava-seeds.s3-us-west-1.amazonaws.com/carver-raymond.jpg')
+    user4.photo.attach(io: file4, filename: "carver-raymond.jpg")
 
     route1 = Route.create!(
         user_id: user1.id,

@@ -1,3 +1,5 @@
+require 'open-uri'
+
 class Api::UsersController < ApplicationController
 
     def create
@@ -7,7 +9,8 @@ class Api::UsersController < ApplicationController
                 user_id: 1,
                 follower_id: @user.id
             )
-            @user.photo.attach(io: File.open("/Users/tatianafaramarzi/Documents/strava_clone_userimages/default-avatar.jpg"), filename: "default-avatar.jpg")
+            file = open('https://brava-seeds.s3-us-west-1.amazonaws.com/default-avatar.jpg')
+            @user.photo.attach(io: file, filename: "default-avatar.jpg")
             login(@user)
             render :show
         else
