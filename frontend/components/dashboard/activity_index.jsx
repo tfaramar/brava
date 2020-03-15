@@ -19,6 +19,9 @@ class ActivityIndex extends React.Component {
     componentDidMount() {
         this.props.fetchActivities();
         document.addEventListener('scroll', this.trackScrolling);
+        
+        let promo = document.getElementsByClassName("promo-image")[0];
+        promo.setAttribute("style", `background-image: url('${window.promo_card}');`);  
     }
 
     componentWillUnmount() {
