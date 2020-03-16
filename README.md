@@ -6,6 +6,8 @@ The application was built using React/Redux for the frontend and Ruby on Rails f
 
 [Check out Brava!](https://tatiana-strava-clone.herokuapp.com/#/)
 
+![](app/assets/images/brava_dashboard.png)
+
 ## Current Features
 
 * User authentication: users can securely create an account and login, or they can tour the site using a demo account
