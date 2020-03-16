@@ -16,7 +16,7 @@ The application was built using React/Redux for the frontend and Ruby on Rails f
 * Users can "give kudos to" the activities of their followees
 * A logged-in user can create a route through an interactive map that will allow them to plot their points, and access the Mapbox Directions API to optimize their route based on the activity type — cycling or running
 
-![](app/assets/images/brava_routebuilder.png)
+![](app/assets/images/brava_routebuilder_ride.png)
 
 ![](app/assets/images/brava_myroutes.gif)
 
