@@ -16,6 +16,10 @@ The application was built using React/Redux for the frontend and Ruby on Rails f
 * Users can "give kudos to" the activities of their followees
 * A logged-in user can create a route through an interactive map that will allow them to plot their points, and access the Mapbox Directions API to optimize their route based on the activity type — cycling or running
 
+![](app/assets/images/brava_routebuilder.png)
+
+![](app/assets/images/brava_myroutes.gif)
+
 ## Highlights
 
 One of the challenges that I faced was finding a way to implement endless scrolling on the user's activity dashboard, while also allowing them to toggle an activities filter. I needed a way to qualify what activities the user wanted to see, and prepare the backend to shift the ids of the activities that were being requested based on how far the user had scrolled. In my resource controller, I implemented conditional behavior based on a feed type query param, and set the offset to whatever number was passed as a query param from the frontend.
