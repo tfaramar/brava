@@ -4,7 +4,7 @@ Brava is a browser-based application allows runners and cyclists to track their 
 
 I built this application using React/Redux for the frontend and Ruby on Rails for the backend, with PostgreSQL to manage the database. I used JBuilder to format my JSON responses, and implemented user authentication using session tokens and the BCrypt library to one-way encrypt user passwords. All styling was accomplished with Sass-compiled CSS, and I used the Mapbox API for geographic interactivity. 
 
-### [Check out Brava!](https://tatiana-strava-clone.herokuapp.com/#/)
+### [Check out Brava!](https://brava-brava.herokuapp.com/#/)
 
 ![](app/assets/images/brava_dashboard.png)
 
