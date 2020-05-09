@@ -14,7 +14,8 @@ class RouteBuilder extends React.Component {
             coordinates: {},
             duration: 0,
             distance: 0.00,
-            modal: false
+            modal: false,
+            routeError: false
         }
 
         this.map = {};
@@ -202,10 +203,21 @@ class RouteBuilder extends React.Component {
     }
 
     toggleModal() {
-        this.state.modal === false ? this.setState({ modal: true }) : this.setState({ modal: false});
+        if (this.state.coordinates.length) {
+            this.state.modal === false ? this.setState({ modal: true }) : this.setState({ modal: false });
+        } else {
+            this.setState({ routeError: true });
+            setTimeout(() => {
+                this.setState({ routeError: false });
+            }, 2000)
+        }
     }
 
     render() {
+        const noRouteError = (
+            <div className="route-save-error">Oops! Looks like you haven't set a route yet.</div>
+        )
+
         return (
             <div className="map-container">
                 <div id="map"></div>
@@ -214,6 +226,7 @@ class RouteBuilder extends React.Component {
                         Save
                     </button>
                 </div>
+                {this.state.routeError === true ? noRouteError : null}
                 <div className="toggle-wrapper">
                     <button className="toggle-ride active" type="button" onClick={(e) => this.toggleSport(e)}>Ride</button>
                     <button className="toggle-run" type="button" onClick={(e) => this.toggleSport(e)}>Run</button>
