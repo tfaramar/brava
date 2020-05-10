@@ -8,13 +8,13 @@
     width: 400px;
     margin: 0 auto;
     position: relative;
-    top: 7%;
+    top: 20%;
 }
 
 .login-form {
     width: 300px;
-    height: 335px;
-    padding: 50px;
+    height: 410px;
+    padding: 30px 50px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -44,7 +44,15 @@
 .signup-error {
     color: red;
     background-color: rgba(0,0,0,0.75);
-    font-size: 0.7rem;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.validation-error {
+    list-style-type: none;
+    color: red;
+    background-color: clear;
+    font-size: 0.85rem;
     text-align: center;
 }
 

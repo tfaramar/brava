@@ -8,14 +8,16 @@ class SessionForm extends React.Component {
         if (this.props.formType === 'Log In') {
             this.state = {
                 email: '',
-                password: ''
+                password: '',
+                errors: {}
             }
         } else {
             this.state = {
                 email: '',
                 password: '',
                 firstName: '',
-                lastName: ''
+                lastName: '',
+                errors: {}
             }
         };
         
@@ -33,7 +35,8 @@ class SessionForm extends React.Component {
 
     update(field) {
         return e => this.setState({
-            [field]: e.currentTarget.value
+            [field]: e.currentTarget.value,
+            errors: {}
         });
     }
 
@@ -46,13 +49,59 @@ class SessionForm extends React.Component {
         this.demo(user);
     }
 
+    validatePassword(password) {
+        if (password.length < 8) return false;
+        return true;
+    }
+
+    validateInput(input) {
+        if (input.length < 1) return false;
+        return true;
+    }
+
     handleSubmit(e) {
         e.preventDefault();
-        const user = Object.assign({}, this.state);
+        
+        // const user = Object.assign({}, this.state);
+        const errors = {};
+        if (!this.validateInput(this.state.email)) {
+            errors['email'] = "Please enter a valid email"
+        };
+        if (!this.validatePassword(this.state.password)) {
+            console.log("password invalid!")
+            errors['password'] = "Your password must be at least 8 characters long"
+        };
+        if ('firstName' in this.state && !this.validateInput(this.state.firstName)) {
+            errors['firstName'] = "Please enter your first name"
+        };
+        if ('lastName' in this.state && !this.validateInput(this.state.lastName)) {
+            errors['lastName'] = "Please enter your last name"
+        };
+        if (Object.values(errors).length > 0) {
+            console.log('errors object in submit handler', errors);
+            this.setState({ errors: errors });
+            return;
+        };
+
+        let user;
+        if (this.props.formType === 'Log In') {
+            user = {
+                email: this.state.email,
+                password: this.state.password
+            }
+        } else {
+            user = {
+                email: this.state.email,
+                password: this.state.password,
+                firstName: this.state.password,
+                lastName: this.state.password
+            }
+        }
         const snakeCaseUser = Object.fromEntries(
             Object.entries(user).map(([k, v]) => [camelToSnakeCase(k), v])
         );
         this.props.processForm(snakeCaseUser);
+
     }
 
     demo(user) {
@@ -95,7 +144,8 @@ class SessionForm extends React.Component {
         }, intervalSpeed);
     }
 
-    renderErrors() {
+    renderServerErrors() {
+        console.log(this.props.errors);
         return (
             <ul>
                 {this.props.errors.map((error, i) => (
@@ -108,6 +158,7 @@ class SessionForm extends React.Component {
     }
 
     render() {
+        console.log(this.state);
         let demoButton;
         if (this.props.formType === 'Log In') {
             demoButton = 
@@ -127,6 +178,7 @@ class SessionForm extends React.Component {
                     onChange={this.update('firstName')}
                     className="login-input"
                 />
+                {this.state.errors.firstName ? <li className="validation-error">{this.state.errors.firstName}</li> : null}
                 <br />
                 <input type="text"
                     value={this.state.lastName}
@@ -134,6 +186,7 @@ class SessionForm extends React.Component {
                     onChange={this.update('lastName')}
                     className="login-input"
                 />
+                {this.state.errors.lastName ? <li className="validation-error">{this.state.errors.lastName}</li> : null}
                 <br />
             </div>
         }
@@ -142,7 +195,7 @@ class SessionForm extends React.Component {
             <div className="login-form-container">
                 <form className="login-form-box" onSubmit={this.handleSubmit}>
                     <h1 className="login-form-message">{this.props.message}</h1>
-                    {this.renderErrors()}
+                    {this.renderServerErrors()}
                     <div className="login-form">
                         {demoButton}
                         <br />
@@ -152,6 +205,7 @@ class SessionForm extends React.Component {
                                 onChange={this.update('email')}
                                 className="login-input"
                             />
+                        {this.state.errors.email ? <li className="validation-error">{this.state.errors.email}</li> : null}
                         <br />
                         <input type="password"
                                 value={this.state.password}
@@ -159,6 +213,7 @@ class SessionForm extends React.Component {
                                 onChange={this.update('password')}
                                 className="login-input"
                             />
+                        {this.state.errors.password ? <li className="validation-error">{this.state.errors.password}</li> : null}
                         <br />
                         {nameInputs}
                         <input className="session-submit" type="submit" value={this.props.formType} />
