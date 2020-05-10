@@ -1,7 +1,8 @@
 .routes-page-container {
     height: 100vh;
-    margin: 2rem 3.5rem;
-    box-sizing: border-box;
+    margin: 0 auto;
+    padding: 2rem;
+    max-width: 1200px;
 }
 
 .route-index-title {
@@ -40,6 +41,7 @@
     max-width: 9rem;
     border: 1px solid $light-gray;
     margin: 1.5rem 0;
+    box-sizing: border-box;
 }
 
 .ri-toggle-ride, .ri-toggle-run {

@@ -1,8 +1,14 @@
-.dashboard {
-    display: flex;
-    flex-flow: row;
+.dashboard { 
     background-color: #f7f7fa;
     min-height: 100vh;
+    min-width: 100vw;
+}
+
+.dash-wrapper {
+    margin: 0 auto;
+    display: flex;
+    flex-flow: row; 
+    max-width: 1200px;
 }
 
 .feed-header {
@@ -62,8 +68,8 @@
 .activity-feed-container {
     width: 55%; 
     min-height: 1px;
-    padding-left: 16px;
-    padding-right: 16px;
+    padding-left: 1.75rem;
+    padding-right: 1.75rem;
 }
 
 .entry-card {
