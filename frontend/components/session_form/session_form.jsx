@@ -93,8 +93,8 @@ class SessionForm extends React.Component {
             user = {
                 email: this.state.email,
                 password: this.state.password,
-                firstName: this.state.password,
-                lastName: this.state.password
+                firstName: this.state.firstName,
+                lastName: this.state.lastName
             }
         }
         const snakeCaseUser = Object.fromEntries(
@@ -105,6 +105,7 @@ class SessionForm extends React.Component {
     }
 
     demo(user) {
+        this.setState({ errors: {} })
         const intervalSpeed = 120;
 
         const { email, password } = user;
