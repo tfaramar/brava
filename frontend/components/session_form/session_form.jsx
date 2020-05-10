@@ -68,7 +68,6 @@ class SessionForm extends React.Component {
             errors['email'] = "Please enter a valid email"
         };
         if (!this.validatePassword(this.state.password)) {
-            console.log("password invalid!")
             errors['password'] = "Your password must be at least 8 characters long"
         };
         if ('firstName' in this.state && !this.validateInput(this.state.firstName)) {
@@ -78,7 +77,6 @@ class SessionForm extends React.Component {
             errors['lastName'] = "Please enter your last name"
         };
         if (Object.values(errors).length > 0) {
-            console.log('errors object in submit handler', errors);
             this.setState({ errors: errors });
             return;
         };
@@ -146,7 +144,6 @@ class SessionForm extends React.Component {
     }
 
     renderServerErrors() {
-        console.log(this.props.errors);
         return (
             <ul>
                 {this.props.errors.map((error, i) => (
@@ -159,7 +156,6 @@ class SessionForm extends React.Component {
     }
 
     render() {
-        console.log(this.state);
         let demoButton;
         if (this.props.formType === 'Log In') {
             demoButton = 
