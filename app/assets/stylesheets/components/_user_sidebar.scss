@@ -2,10 +2,14 @@
     display: flex;
     flex-flow: column;
     width: 27%;
+    
 }
 
 .user-sidebar-container {
     width: 100%;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 3.5rem;
 }
 
 .sidebar-athlete-profile {
