@@ -7,9 +7,11 @@ import ChallengeSidebar from './challenge_sidebar';
 const Dashboard = () => {
     return (
         <div className="dashboard">
-            <UserSidebarContainer />
-            <ActivityIndexContainer />
-            <ChallengeSidebar />  
+            <div className="dash-wrapper">
+                <UserSidebarContainer />
+                <ActivityIndexContainer />
+                <ChallengeSidebar />  
+            </div>
         </div>
     )   
 };
