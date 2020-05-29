@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Link, Switch, Redirect } from 'react-router-dom';
+import { Switch, Redirect } from 'react-router-dom';
 
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import NavContainer from './nav/nav_container';
@@ -16,10 +16,10 @@ const App = () => (
         <header className="global-header">
             <NavContainer />
         </header>
-        <ProtectedRoute exact path="/" component={Dashboard} />
+        <ProtectedRoute exact path="/" component={NewActivityFormContainer} />
         <Switch> 
             <ProtectedRoute exact path="/routes/new" component={RouteBuilderContainer} /> 
-            {/* <ProtectedRoute exact path="/activities/new" component={NewActivityFormContainer} /> */}
+            <ProtectedRoute exact path="/activities/new" component={NewActivityFormContainer} />
             <ProtectedRoute exact path="/routes" component={RouteIndexContainer} />
             <AuthRoute exact path="/login" component={LoginFormContainer} />
             <AuthRoute exact path="/signup" component={SignupFormContainer} />
