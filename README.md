@@ -23,7 +23,7 @@ I built this application using React/Redux for the frontend and Ruby on Rails fo
 
 ## Thinking about scale
 
-Because it would not make sense to eagerly load the hundreds of activities that might appear on a user's dashboard, I decided to implement endless scrolling on the user's activity dashboard, while also allowing users to filter the activities they see. In my resource controller, I used conditional logic to return the appropriate activities based on a feed type query param (the user's own activities vs. their activities combined with their friends' activities), and set the offset to whatever number was passed as a query param from the frontend.
+Because it would not make sense to eagerly load the hundreds of activities that might appear on a user's dashboard, I decided to implement endless scrolling on the user's activity dashboard, while also allowing users to filter the activities they see. In my resource controller, I used conditional logic to show activities based on a feed type query param (the user's own activities vs. their activities combined with their friends' activities), and set the offset to whatever number was passed as a query param from the frontend.
 
 ```ruby
     def index
