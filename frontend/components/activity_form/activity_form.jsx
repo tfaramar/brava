@@ -29,60 +29,65 @@ const ActivityForm = (props) => {
 
     return (
         <div className="activity-form-container">
-            <h1>Manual Activity Entry</h1>
+            <h1 className="activity-form-title">Manual Activity Entry</h1>
             <div>
                 <form className="activity-form">
                     <div className="upper-form">
                         <div className="fieldset">
-                            <label> Distance
-                                <input 
-                                    type="number" 
-                                    value={activityData.distance}
-                                    name="distance"
-                                    onChange={handleChange}
-                                /> miles
-                            </label>
+                            <label> Distance </label>
+                            <input 
+                                type="number" 
+                                value={activityData.distance}
+                                name="distance"
+                                onChange={handleChange}
+                            /> miles
+                        
                         </div>
                         <div className="fieldset">
                             <label> Duration </label>
-                                <input 
-                                    type="number" 
+                            <div className="compound-input">
+                                <input
+                                    type="number"
+                                    placeholder="00 hours"
                                     value={activityData.hours}
                                     name="hours"
                                     onChange={handleChange}
-                                /> 
+                                />
                                 <input
                                     type="number"
+                                    placeholder="00 minutes"
                                     value={activityData.mins}
                                     name="mins"
                                     onChange={handleChange}
-                                /> 
+                                />
                                 <input
                                     type="number"
+                                    placeholder="00 seconds"
                                     value={activityData.secs}
                                     name="secs"
                                     onChange={handleChange}
                                 /> 
+                            </div>
                         </div>
                         <div className="fieldset">
-                            <label> Elevation
-                                <input 
+                            <label> Elevation </label>
+                            <div className="compound-input">
+                                <input
                                     type="number"
                                     value={activityData.elevation}
                                     name="elevation"
-                                    onChange={handleChange} 
+                                    onChange={handleChange}
                                 /> feet
-                            </label>
+                            </div>
                         </div>
                     </div>
                     <div className="lower-form">
                         <div className="fieldset">
-                            <label> Sport
-                                <select name="sport">
-                                    <option value="1">Ride</option>
-                                    <option value="2">Run</option>
-                                </select>
-                            </label>
+                            <label> Sport </label>
+                            <select name="sport">
+                                <option value="1">Ride</option>
+                                <option value="2">Run</option>
+                            </select>
                         </div>
                         <div className="fieldset">
                             <label> Date / Time </label>
@@ -106,7 +111,14 @@ const ActivityForm = (props) => {
                                 />
                             </label>
                         </div>
-                    </div>   
+                    </div>  
+                    <div className="route-content">
+                        Routes to be shown here based on the sport type
+                    </div> 
+                    <div className="activity-buttons">
+                        <button className="submit-activity-button" type="submit">Create</button>
+                        <button className="cancel-activity-button" type="button">Cancel</button>
+                    </div>
                 </form>
             </div>
             
