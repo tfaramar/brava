@@ -5,7 +5,21 @@
     max-width: 1200px;
 
     input {
-        
+        width: 6rem;
+        font-size: 16px;
+        color: $dark-gray;
+        border: 1px solid $light-gray;
+        padding: 0.25rem 2rem;
+        text-align: center;
+        margin-right: 0.25rem;
+
+        &:focus {
+            border: 1px solid $dark-link-blue;
+        }
+    }
+
+    label {
+        margin-bottom: 0.25rem;
     }
 }
 
@@ -17,16 +31,54 @@
     margin-bottom: 1.5rem; 
 }
 
-.upper-form, .lower-form {
+.lower-metaform {
     display: flex;
+    flex-direction: column;
+    margin: 1.5rem 0;
+    border-bottom: 1px solid $light-gray;
+    padding-right: 12rem;
+
+    input {
+        width: 34rem;
+    }
+}
+
+.upper-form {
+    display: flex;
+    flex-flow: row wrap;
     justify-content: space-between;
     margin: 1.5rem 0;
     border-bottom: 1px solid $light-gray;
+    padding-right: 12rem;
+}
+
+.lower-form {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    padding-right: 25rem;
+
+    input {
+        width: 15rem;
+    }  
 }
 
 .fieldset {
     display: flex;
     flex-direction: column;
+    margin-bottom: 1.5rem
+}
+
+.custom-select {
+    width: 15rem;
+    font-size: 16px;
+    color: $dark-gray;
+    border: 1px solid $light-gray;
+    padding: 0.25rem 1rem;  
+}
+
+#err-input {
+    border: 1px solid red;
 }
 
 .submit-activity-button {
