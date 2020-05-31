@@ -87,4 +87,11 @@ export const formatDuration = numSeconds => {
     };
 };
 
+export const unformatDuration = (hours, minutes, seconds) => {
+    let totalSeconds = seconds;
+    totalSeconds += (minutes * 60);
+    totalSeconds += (hours * 3600);
+    return totalSeconds;
+};
+
 
