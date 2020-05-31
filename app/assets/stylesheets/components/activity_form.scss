@@ -1,0 +1,57 @@
+.activity-form-container {
+    height: 100vh;
+    margin: 0 auto;
+    padding: 2rem;
+    max-width: 1200px;
+
+    input {
+        
+    }
+}
+
+.activity-form-title {
+    font-weight: bold;
+    font-size: 2rem;
+    color: $text-black;
+    text-align: left;
+    margin-bottom: 1.5rem; 
+}
+
+.upper-form, .lower-form {
+    display: flex;
+    justify-content: space-between;
+    margin: 1.5rem 0;
+    border-bottom: 1px solid $light-gray;
+}
+
+.fieldset {
+    display: flex;
+    flex-direction: column;
+}
+
+.submit-activity-button {
+    background-color: rgba(252,82,0,1);
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 4px;
+    padding: 6px;
+    width: 4rem;
+    margin-right: 1.5rem;
+
+    &:hover {
+        background-color: $darkest-orange;
+    } 
+}
+
+.cancel-activity-button {
+    color: $dark-link-blue;
+    border: none;
+    background-color: none;
+    font-size: 14px;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
