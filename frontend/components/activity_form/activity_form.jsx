@@ -140,6 +140,7 @@ const ActivityForm = (props) => {
                     </div>  
                     <div className="route-content">
                         BUNCH OF ROUTES TO CHOOSE FROM BASED ON SPORT TYPE
+                        {/* Render route maps, should be able to select and update local form state with duration and elevation values */}
                     </div> 
                     <div className="activity-buttons">
                         <button className="submit-activity-button" type="submit">Create</button>
