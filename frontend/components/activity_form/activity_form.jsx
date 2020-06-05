@@ -7,14 +7,18 @@ const ActivityForm = (props) => {
     const [activityData, setActivityData] = useState({
         sport: 1,
         title: "Afternoon run",
-        distance: 0,
-        elevation: 0,
+        distance: "",
+        elevation: "",
         hours: "",
         mins: "",
         secs: "",
         startDate: new Date(),
         routeId: null
     });
+
+    const useEffect = () => {
+        //fetchRoutes
+    };
 
     const handleChange = e => {
         setActivityData({...activityData, [e.target.name]: e.target.value});
