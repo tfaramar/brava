@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import DatePicker from 'react-datepicker';
 
 import { camelToSnakeCase, unformatDuration } from '../../util/helper_functions';
+import SimpleRouteCard from '../routes/simple_route_card';
 
 const ActivityForm = (props) => {
     const [activityData, setActivityData] = useState({
@@ -16,9 +17,9 @@ const ActivityForm = (props) => {
         routeId: null
     });
 
-    const useEffect = () => {
-        //fetchRoutes
-    };
+    useEffect (() => {
+        props.fetchRoutes();
+    }, [activityData.sport]);
 
     const handleChange = e => {
         setActivityData({...activityData, [e.target.name]: e.target.value});
@@ -42,11 +43,28 @@ const ActivityForm = (props) => {
         setActivityData({ ...activityData, [e.target.name]: num });
     };
 
+    const selectRoute = (idx) => {
+        let r = theseRoutes[idx];
+        //toggle active class on map to highlight it
+        let times = r.time.split(":");
+        console.log(times);
+        let newData = Object.assign({}, activityData);
+        newData.distance = r.distance;
+        newData.hours = times[0];
+        newData.mins = times[1];
+        newData.secs = times[2];
+        setActivityData(newData);
+    };
+
     const handleSubmit = e => {
         e.preventDefault();
         console.log(activityData);
         // unformatDuration(activityData.hours, activityData.mins, activityData.secs)
+        // this.props.history.push("/");
     };
+
+    let theseRoutes = props.routes && props.routes.length > 0 ? props.routes.filter(route => route.sport === activityData.sport) : [];
+    let type = activityData.sport === 1 ? "cycling" : "running";
 
     return (
         <div className="activity-form-container">
@@ -142,9 +160,11 @@ const ActivityForm = (props) => {
                                 />
                         </div>
                     </div>  
-                    <div className="route-content">
-                        BUNCH OF ROUTES TO CHOOSE FROM BASED ON SPORT TYPE
-                        {/* Render route maps, should be able to select and update local form state with duration and elevation values */}
+                    <p className="route-section-header">If you took one of your regular routes, select it below:</p>
+                    <div className="ri-route-feed">
+                        {
+                            props.routes && theseRoutes.length > 0 ? theseRoutes.map((route, idx) => <SimpleRouteCard key={route.id} idx={idx} route={route} selectRoute={selectRoute} />) : <h2>You haven't created any {type} routes.</h2>
+                        } 
                     </div> 
                     <div className="activity-buttons">
                         <button className="submit-activity-button" type="submit">Create</button>
