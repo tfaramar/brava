@@ -1,11 +1,13 @@
 import React from 'react';
 
 import RouteMap from './route_map';
-import { formatDate, formatTime } from '../../util/helper_functions';
+import { formatTime } from '../../util/helper_functions';
 
-const SimpleRouteCard = ({ route, idx, selectRoute }) => {
+const SimpleRouteCard = ({ route, idx, selectRoute, routeSelected }) => {
+    const secondClass = routeSelected === idx ? "selected" : "";
+
     return (
-        <div onClick={() => selectRoute(idx)} className="simple-route-card">
+        <div onClick={() => selectRoute(idx)} className={`simple-route-card ${secondClass}`}>
             <div className="route-map-embed">
                 <RouteMap coordinates={route.coordinates} container={`map-route-${route.id}`} />
             </div>
