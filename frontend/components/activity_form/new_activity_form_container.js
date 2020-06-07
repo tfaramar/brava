@@ -9,8 +9,9 @@ import ActivityForm from './activity_form';
 const mapStateToProps = state => ({
     errors: state.errors.activities,
     formType: 'Create',
-    message: 'Manual Entry',
-    routes: selectRoutes(state)
+    message: 'Manual Activity Entry',
+    routes: selectRoutes(state),
+    user: state.session.id 
 });
 
 const mapDispatchToProps = dispatch => ({
