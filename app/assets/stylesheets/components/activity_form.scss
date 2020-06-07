@@ -34,7 +34,7 @@
 .lower-metaform {
     display: flex;
     flex-direction: column;
-    margin: 1.5rem 0;
+    margin: 1.75rem 0;
     border-bottom: 1px solid $light-gray;
     padding-right: 12rem;
 
@@ -47,7 +47,7 @@
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
-    margin: 1.5rem 0;
+    margin: 1.75rem 0;
     border-bottom: 1px solid $light-gray;
     padding-right: 10%;
 }
@@ -57,6 +57,7 @@
     flex-flow: row wrap;
     justify-content: space-between;
     padding-right: 30%;
+    padding-bottom: 0.5rem;
 
     input {
         width: 15rem;
@@ -79,6 +80,11 @@
 
 #err-input {
     border: 1px solid red;
+}
+
+.act-form-error {
+    font-size: 0.95rem;
+    color: red;
 }
 
 .route-section-header {
@@ -115,4 +121,9 @@
     &:hover {
         text-decoration: underline;
     }
+}
+
+.selected {
+    box-shadow: 2px 8px 16px 2px rgba(1, 1, 15, 0.25);
+    transition: box-shadow 0.3s ease-in-out;
 }
