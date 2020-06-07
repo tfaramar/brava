@@ -13,6 +13,9 @@
  *= require_self
  */
 
+ //DatePicker
+ @import 'react-datepicker/dist/react-datepicker.css';
+
  //CSS Reset
  @import "base/reset.scss";
 
@@ -22,3 +25,4 @@
 
  //Components
  @import "components/*";
+ 

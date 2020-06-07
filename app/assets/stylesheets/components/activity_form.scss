@@ -1,0 +1,129 @@
+.activity-form-container {
+    height: 100vh;
+    margin: 0 auto;
+    padding: 2rem;
+    max-width: 1200px;
+
+    input {
+        width: 6rem;
+        font-size: 16px;
+        color: $dark-gray;
+        border: 1px solid $light-gray;
+        padding: 0.25rem 2rem;
+        text-align: center;
+        margin-right: 0.25rem;
+
+        &:focus {
+            border: 1px solid $dark-link-blue;
+        }
+    }
+
+    label {
+        margin-bottom: 0.25rem;
+    }
+}
+
+.activity-form-title {
+    font-weight: bold;
+    font-size: 2rem;
+    color: $text-black;
+    text-align: left;
+    margin-bottom: 1.5rem; 
+}
+
+.lower-metaform {
+    display: flex;
+    flex-direction: column;
+    margin: 1.75rem 0;
+    border-bottom: 1px solid $light-gray;
+    padding-right: 12rem;
+
+    input {
+        width: 34rem;
+    }
+}
+
+.upper-form {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    margin: 1.75rem 0;
+    border-bottom: 1px solid $light-gray;
+    padding-right: 10%;
+}
+
+.lower-form {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    padding-right: 30%;
+    padding-bottom: 0.5rem;
+
+    input {
+        width: 15rem;
+    }  
+}
+
+.fieldset {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem
+}
+
+.custom-select {
+    width: 15rem;
+    font-size: 16px;
+    color: $dark-gray;
+    border: 1px solid $light-gray;
+    padding: 0.25rem 1rem;  
+}
+
+#err-input {
+    border: 1px solid red;
+}
+
+.act-form-error {
+    font-size: 0.95rem;
+    color: red;
+}
+
+.route-section-header {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+.activity-buttons {
+    margin: 1rem 0 4rem 0;
+}
+
+.submit-activity-button {
+    background-color: rgba(252,82,0,1);
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 4px;
+    padding: 6px;
+    width: 4rem;
+    margin-right: 1.5rem;
+
+    &:hover {
+        background-color: $darkest-orange;
+    } 
+}
+
+.cancel-activity-button {
+    color: $dark-link-blue;
+    border: none;
+    background-color: none;
+    font-size: 14px;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.selected {
+    box-shadow: 2px 8px 16px 2px rgba(1, 1, 15, 0.25);
+    transition: box-shadow 0.3s ease-in-out;
+}
